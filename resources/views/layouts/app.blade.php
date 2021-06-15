@@ -26,6 +26,8 @@
   <link href="{{asset('assets/vendor/aos/aos.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
+  <link href="{{asset('assets/css/style2.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/slick.css')}}" rel="stylesheet">
   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
   <!-- =======================================================
@@ -205,6 +207,9 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('assets/js/main.js')}}"></script>
+  <script src="{{asset('assets/js/easing.min.js')}}"></script>
+  <script src="{{asset('assets/js/slick.min.js')}}"></script>
+  <script src="{{asset('assets/js/main1.js')}}"></script>
 
 </body>
 
