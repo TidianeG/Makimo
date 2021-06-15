@@ -68,9 +68,9 @@
     <section>
       <!-- Recent Product Start -->
       <div class="recent-product product">
-            <div class="container-fluid">
+            <div class="">
                 <div class="section-header" style="background:#009970;">
-                    <h2 style="color:white;">ANNOCE A LA UNE</h2>
+                    <h2 class="text-center" style="color:white;">ANNOCE A LA UNE</h2>
                 </div>
                 <div class="row align-items-center product-slider product-slider-4">
                     <div class="col-lg-3 m-1">
@@ -221,10 +221,10 @@
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
-      <div class="p-2 m-2" style="background:#009970;">
-        <h4 class="text-center" style="color:white;">ANNONCE A LA UNE</h4>
-      </div>
-      <div class="container">
+      <div class="">
+          <div class="p-2 " style="background:#009970;">
+            <h4 class="text-center" style="color:white;"> LES PLUS RECHERCHEES  </h4>
+          </div>
             <div class="icon-boxes d-flex flex-column justify-content-center">
               <div class="row">
                 <div class="col-xl-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
@@ -259,19 +259,6 @@
             </div><!-- End .content-->
       </div>
     </section><!-- End Why Us Section -->
-
-    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
-      <div class="container">
-
-        <div class="text-center" data-aos="zoom-in">
-          <h3>Call To Action</h3>
-          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <a class="cta-btn" href="#">Call To Action</a>
-        </div>
-
-      </div>
-    </section><!-- End Cta Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg">
@@ -312,6 +299,18 @@
             </div>
       </div>
     </section><!-- End Services Section -->
+
+     <!-- ======= Cta Section ======= -->
+     <section id="cta" class="cta " style="background:#009970">
+        <div class="text-center mb-4">
+            <h1 class="" style="color:white;font-weight:bold;">Avez-vous quelque chose à vendre ou à louer?</h1>
+            <h5 style="color:white;">Vendez vos produits et services en ligne GRATUITEMENT. C'est plus facile que vous pouvez l'imaginez!</h>
+        </div>
+        <div class="d-flex justify-content-center ">
+          <button class="btn btn-success" style="font-weight:bold;">POSTULER UNE ANNONCE</button>
+        </div>
+    </section><!-- End Cta Section -->
+
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">

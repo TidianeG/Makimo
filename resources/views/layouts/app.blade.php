@@ -26,9 +26,11 @@
   <link href="{{asset('assets/vendor/aos/aos.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{asset('assets/css/style2.css')}}" rel="stylesheet">
-  <link href="{{asset('assets/css/slick.css')}}" rel="stylesheet">
+  
+  
   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/slick.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/style2.css')}}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Bethany - v2.2.1
@@ -73,9 +75,9 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center" style="height:50vh !important;">
     <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
-      <h1>Your New Online Presence with Bethany</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+      <h1>Makimo l'immobilier en ligne</h1>
+      <h2>Acheter, louer et se loger simplement</h2>
+      <a href="#about" class="btn-get-started scrollto">A propos de nous</a>
     </div>
   </section><!-- End Hero -->
   <section id="clients" class="clients">
