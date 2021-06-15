@@ -4,13 +4,37 @@
 <!-- ======= Clients Section ======= -->
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
-        <div class="container">
-            <form action=""></form>
+        <div class="p-4" style="background:#009970;">
+            <form action="">
+              <div class="row">
+                <div class="col-12 col-md-3">
+                    <input type="text" class="form-control w-100" placeholder="Que rechercher vous?">
+                </div>
+                <div class="col-12 col-md-3 ">
+                    <select name="" id="" class="w-100">
+                      <option value="">TOUTES LES CATEGORIES</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-3 ">
+                    <select name="" id="" class="w-100">
+                      <option value="">LOCALITE</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-3 ">
+                    <button class="btn btn-success w-100" type="submit">RECHERCHER</button>
+                </div>
+              </div>
+              
+            </form>
+        </div>
+        <div class="card">
+            <div class="card-header" style="color:#009970;font-weight:bold;cursor:pointer;">RECHERCHE AVANCEE</div>
+            <div class="card-body" style="background:#009970;display:none;  "></div>
         </div>
     </section>
     <!-- End About Section -->
     <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts">
+    <!-- section id="counts" class="counts">
       <div class="container">
 
         <div class="row counters">
@@ -38,10 +62,13 @@
         </div>
 
       </div>
-    </section><!-- End Counts Section -->
+    </section>< End Counts Section -->
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
+      <div class="p-2 m-2" style="background:#009970;">
+        <h4 class="text-center" style="color:white;">ANNONCE A LA UNE</h4>
+      </div>
       <div class="container">
             <div class="icon-boxes d-flex flex-column justify-content-center">
               <div class="row">

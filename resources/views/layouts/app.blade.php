@@ -109,7 +109,7 @@
 
       </div>
     </section><!-- End Clients Section -->
-  <main id="main">
+  <main id="main" class="container">
         @yield('content')
   </main><!-- End #main -->
 
