@@ -215,7 +215,7 @@
 
 .product .slick-prev,
 .product .slick-next {
-    top: -55px;
+    top: -75px !important;
     width: 30px;
     height: 30px;
     z-index: 1;
@@ -227,11 +227,11 @@
 }
 
 .product .slick-prev {
-    left: calc(100% - 120px);
+    left: calc(100% - 120px) !important;
 }
 
 .product .slick-next {
-    right: 45px;
+    right: 45px !important;
 }
 
 .product .slick-prev:hover,
