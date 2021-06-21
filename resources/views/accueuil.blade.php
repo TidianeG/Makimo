@@ -67,16 +67,16 @@
 
     <section>
       <!-- Recent Product Start -->
-      <div class="recent-product product">
+        <div class="recent-product product">
             <div class="">
                 <div class="section-header" style="background:#009970;">
-                    <h2 class="text-center" style="color:white;">ANNOCE A LA UNE</h2>
+                    <h4 class="text-center" style="color:white;">ANNOCE A LA UNE</h4>
                 </div>
                 <div class="row align-items-center product-slider product-slider-4">
                     <div class="col-lg-3 m-1">
                         <div class="product-item">
                             <div class="product-title">
-                                <a href="#">Product Name</a>
+                                <a href="#">Nom produit</a>
                                 <div class="ratting">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -97,14 +97,14 @@
                             </div>
                             <div class="product-price">
                                 <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 m-1">
                         <div class="product-item">
                             <div class="product-title">
-                                <a href="#">Product Name</a>
+                                <a href="#">Nom produit</a>
                                 <div class="ratting">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -125,14 +125,14 @@
                             </div>
                             <div class="product-price">
                                 <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 m-1">
                         <div class="product-item">
                             <div class="product-title">
-                                <a href="#">Product Name</a>
+                                <a href="#">Nom produit</a>
                                 <div class="ratting">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -153,14 +153,14 @@
                             </div>
                             <div class="product-price">
                                 <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 m-1">
                         <div class="product-item">
                             <div class="product-title">
-                                <a href="#">Product Name</a>
+                                <a href="#">Nom produit</a>
                                 <div class="ratting">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -181,14 +181,14 @@
                             </div>
                             <div class="product-price">
                                 <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 m-1">
                         <div class="product-item">
                             <div class="product-title">
-                                <a href="#">Product Name</a>
+                                <a href="#">Nom produit</a>
                                 <div class="ratting">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -209,7 +209,7 @@
                             </div>
                             <div class="product-price">
                                 <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
                             </div>
                         </div>
                     </div>
@@ -222,8 +222,8 @@
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
       <div class="">
-          <div class="p-2 " style="background:#009970;">
-            <h4 class="text-center" style="color:white;"> NOS DIFFERENTES RUBRIQUES </h4>
+          <div class="p-2 mb-2" style="background:#009970;">
+            <h4 class="text-center" style="color:white;">NOS DIFFERENTES RUBRIQUES </h4>
           </div>
             <div class="icon-boxes d-flex flex-column justify-content-center">
               <div class="row">
@@ -320,29 +320,31 @@
           <div class="col-lg-4" data-aos="fade-right">
             <div class="section-title">
               <h2>Contact</h2>
-              <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+              <p>Si vous désirez nous contacter,
+                  obtenir des informations, veuillez nous laisser un message avec vos coordonnées, nous nous efforcerons de vous répondre dans les plus brefs délais.
+                </p>
             </div>
           </div>
 
           <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
             <div class="info mt-4">
               <i class="icofont-google-map"></i>
-              <h4>Location:</h4>
-              <p>A108 Adam Street, New York, NY 535022</p>
+              <h4>Adresse:</h4>
+              <p>Xxxxxxxxxxxxx, Xxxxxxx, Xxxxxxxx</p>
             </div>
             <div class="row">
               <div class="col-lg-6 mt-4">
                 <div class="info">
                   <i class="icofont-envelope"></i>
                   <h4>Email:</h4>
-                  <p>info@example.com</p>
+                  <p>contact@makimo.com</p>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="info w-100 mt-4">
                   <i class="icofont-phone"></i>
-                  <h4>Call:</h4>
-                  <p>+1 5589 55488 55s</p>
+                  <h4>Téléphone:</h4>
+                  <p>+xxx xxxxxxxxxxxxx</p>
                 </div>
               </div>
             </div>
@@ -371,7 +373,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">Envoyer Message</button></div>
             </form>
           </div>
         </div>
