@@ -9,7 +9,7 @@ class AccueuilController extends Controller
     public function accueuil(){
         return view('accueuil');
     }
-
+    
     // récupérationdes donner d'utilisteur
 
     public function store(Request $request){

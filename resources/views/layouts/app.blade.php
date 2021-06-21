@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>MAKIMO agence immobiliere</title>
+  <title>MAKIMO </title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -30,7 +30,7 @@
   
   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
   <link href="{{asset('assets/css/slick.css')}}" rel="stylesheet">
-  <link href="{{asset('assets/css/style2.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/style2.css,.<')}}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Bethany - v2.2.1
@@ -47,25 +47,51 @@
     <div class="container">
       <div class="header-container d-flex align-items-center">
         <div class="logo mr-auto">
-          <h1 class="text-light"><a href="index.html"><span>Makimo</span></a></h1>
+          <h1 class="text-light"><a href="index.html"><img src="{{asset('assets/img/MAKIMO.PNG')}}" class="img-fluid" alt=""></a></h1>
           <!-- Uncomment below if you prefer to use an image logo -->
           <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
 
         <nav class="nav-menu d-none d-lg-block">
           <ul>
-            <li class="active"><a href="#header">Accueuil</a></li>
-            <li><a href="#about">Agence immo</a></li>
-            <li><a href="#services">Instituts financiers</a></li>
-            <li><a href="#portfolio">Concepteurs de forages</a></li>
-            <li class="drop-down"><a href="">Compte</a>
+            <li class="active"><a href="#header">Toutes les Categories</a></li>
+           <li class="drop-down"><a href=""> Immo</a>
               <ul>
-                <li><a href="#">Connexion</a></li>
-                <li><a href="#">Inscription</a>
+                <li><a href="#">terrain</a></li>
+                <li><a href="#">maison</a>
                 </li>
               </ul>
             </li>
-            <li class="get-started"><a href="#about">Publier annonce</a></li>
+            <li class="drop-down"><a href="">Agence Immo</a>
+              <ul>
+                <li><a href="#">terrain</a></li>
+                <li><a href="#">maison</a>
+                </li>
+              </ul>
+            </li>
+            <li class="drop-down"><a href="">Banque</a>
+              <ul>
+                <li><a href="#">banque</a></li>
+                <li><a href="#">coperative habitat</a>
+                </li>
+              </ul>
+            </li>
+            <li class="drop-down"><a href="">forage</a>
+              <ul>
+                <li><a href="#">forage domestique</a></li>
+                <li><a href="#">forage rural</a>
+                </li>
+              </ul>
+            </li>
+            <li class="drop-down"><a href="">Compte</a>
+              <ul>
+                <li><a href="#">Se connecter</a></li>
+                <li><a href="#">Creer un compte</a>
+                <li><a href="#">Passe oublie ?</a>
+                </li>
+              </ul>
+            </li>
+            <li class="get-started"><a href="/pub">Publier une annonce</a></li>
           </ul>
         </nav><!-- .nav-menu -->
       </div><!-- End Header Container -->
@@ -75,9 +101,9 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center" style="height:50vh !important;">
     <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
-      <h1>Makimo l'immobilier en ligne</h1>
-      <h2>Acheter, louer et se loger simplement</h2>
-      <a href="#about" class="btn-get-started scrollto">A propos de nous</a>
+      <h1>Makimo Annonces immobilieres</h1>
+      <h2>Acheter, louer , se loger simplement .</h2>
+      <a href="/contact" class="btn-get-started scrollto">Contactez-Nous</a>
     </div>
   </section><!-- End Hero -->
   <section id="clients" class="clients">
