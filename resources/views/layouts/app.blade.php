@@ -54,35 +54,36 @@
 
         <nav class="nav-menu d-none d-lg-block">
           <ul>
-            <li class="active"><a href="#header">Toutes les Categories</a></li>
-           <li class="drop-down"><a href=""> Immo</a>
+            
+           <li class="drop-down"><a href=""> Immo <span class="badge badge-info right">{{$immo}}</span></a>
               <ul>
                 <li><a href="#">terrain</a></li>
                 <li><a href="#">maison</a>
                 </li>
               </ul>
             </li>
-            <li class="drop-down"><a href="">Agence Immo</a>
+            <li class="drop-down"><a href="">Agence Immo <span class="badge badge-info right">{{$agence}}</span></a>
               <ul>
                 <li><a href="#">terrain</a></li>
                 <li><a href="#">maison</a>
                 </li>
               </ul>
             </li>
-            <li class="drop-down"><a href="">Banque</a>
-              <ul>
-                <li><a href="#">banque</a></li>
-                <li><a href="#">coperative habitat</a>
-                </li>
-              </ul>
-            </li>
-            <li class="drop-down"><a href="">forage</a>
+            <li class="drop-down"><a href="">forage<span class="badge badge-info right">{{$forage}}</span></a>
               <ul>
                 <li><a href="#">forage domestique</a></li>
                 <li><a href="#">forage rural</a>
                 </li>
               </ul>
             </li>
+            <li class="drop-down"><a href="">Banque<span class="badge badge-info right">{{$bank}}</span></a>
+              <ul>
+                <li><a href="#">banque</a></li>
+                <li><a href="#">coperative habitat</a>
+                </li>
+              </ul>
+            </li>
+          
             <li class="drop-down"><a href="">Compte</a>
               <ul>
                 <li><a href="#">Se connecter</a></li>
@@ -91,7 +92,8 @@
                 </li>
               </ul>
             </li>
-            <li class="get-started"><a href="/pub">Publier une annonce</a></li>
+            <li class="get-started"><a href="/pub">Poster votre annonce</a></li>
+
           </ul>
         </nav><!-- .nav-menu -->
       </div><!-- End Header Container -->
@@ -199,7 +201,7 @@
 
       <div class="mr-md-auto text-center text-md-left">
         <div class="copyright">
-          &copy; Copyright <strong><span>2021</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>2021</span></strong>All Rights Reserved
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->

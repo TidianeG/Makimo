@@ -70,7 +70,7 @@
         <div class="recent-product product">
             <div class="">
                 <div class="section-header" style="background:#009970;">
-                    <h4 class="text-center" style="color:white;">ANNOCE A LA UNE</h4>
+                    <h4 class="text-center" style="color:white;">Annonce á la une</h4>
                 </div>
                 <div class="row align-items-center product-slider product-slider-4">
                     <div class="col-lg-3 m-1">
@@ -229,29 +229,29 @@
               <div class="row">
                 <div class="col-xl-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-receipt"></i>
-                    <h4>Annonce IMMO</h4>
+                  <a href="/immo"><i class="icofont-home"></i></a>
+                    <a href="/immo"><h4>Annonce IMMO</h4></a>
                     <p>Cette Rubrique permettre au particulier ou courtier de faire leur annonce dans le domaine immobilier .</p>
                   </div>
                 </div>
                 <div class="col-xl-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Agence Immo</h4>
+                   <a href="/agence"><i class="icofont-building"></i></a>
+                    <a href="/agence"><h4>Agence Immo</h4></a>
                     <p>Avec cette rubrique les agences immobilieres vont faire l'annonce de leur propre produit immobilier .</p>
                   </div>
                 </div>
                 <div class="col-xl-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Conception de Forage</h4>
+                    <a href="/forage"><i class="icofont-water-drop"></i></a>
+                   <a href="/forage"> <h4>Conception de Forage</h4></a>
                     <p>Cette rubrique permettra aux entreprises specialises dans la conception de forage de pouvoir faire leur annonce pour divers types de forages.</p>
                   </div>
                 </div>
                 <div class="col-xl-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Institut financier</h4>
+                    <a href="/banque"><i class="icofont-bank-transfer"></i></a>
+                    <a href="/banque"><h4>Institut financier</h4></a>
                     <p>Par le biais de cette rubrique les banques et instituts financiers peuvent faire des annoncent pour les differentes possibilites de pret ou de financement sur le plan immobilier .</p>
                   </div>
                 </div>
@@ -309,7 +309,8 @@
             <h5 style="color:white;">Vendez vos produits et services en ligne GRATUITEMENT.Avec MAKIMO c'est plus facile que vous pouvez l'imaginez!</h>
         </div>
         <div class="d-flex justify-content-center ">
-          <button class="btn btn-success" style="font-weight:bold;">POSTULER UNE ANNONCE</button>
+           <li class="btn btn-danger"><a href="/pub"><span style="color: white;
+           ">Poster votre annonce</span></span></a></li>
         </div>
     </section><!-- End Cta Section -->
 

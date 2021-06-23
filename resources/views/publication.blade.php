@@ -6,7 +6,7 @@
                         </div>
                     @endif
                    
-                <div class="container">
+                <div class="container  col-md-6 card" style="width: 98rem;">
                     <form action="{{route('store_annonce')}}" method="POST" enctype="multipart/form-data" id="add_products">
                                 @csrf
                                 @if($errors->any())
@@ -14,11 +14,17 @@
                                 <div class="alert alert-danger">{{$error}}</div>
                                 @endforeach
                                 @endif
-                                <div class="row">   
-                                     <h2>Veuillez ajouter de nouveaux produits</h2>
-                                    <div class="form-group col-6">
-                                        <label for="sexe" class=" " style="color:green;">Categorie</label>
-                                        <div class="col-8">
+                                <div class="">   
+                                    <div class="card-header">
+                                     
+                                     <h3 style="font-weight: bold;font-size: 27px; color:green;">VEUILLEZ POSTER UNE ANNONCE </h3>
+                                    </div>
+                                    <div class="form-group col-lg-12 ">
+                                        <label for="sexe" class="  " style="color:green;font-weight: bold;"><p>
+                
+                <span class="right badge badge-success">Selectionnez le Rubrique</span>
+              </p></label>
+                                        <div class="col-10">
                                             <select name="category_id" id="name_cat" class="form-control">
                                                 <option value=""></option>
                                                 @foreach($categories as $key => $value)
@@ -27,9 +33,9 @@
                                             </select>
                                         </div>
                                   </div>
-                                    <div class="form-group col-6">
-                                        <label for="sexe" class=" " style="color:green;">Sous_Categorie</label>
-                                        <div class="col-8">
+                                    <div class="form-group col-lg-12">
+                                        <label for="sexe" class="  " style="color:green;font-weight: bold;"><span class="right badge badge-success">Selectionnez le Sous-Rubrique</span></label>
+                                        <div class="col-10">
                                             <select name="sous_category_id" id="sous_category_id" class="form-control">
                                                 <option value=""></option>
                                                 @foreach($sous_category as $key => $value)
@@ -41,57 +47,57 @@
                                     
                                 
                                
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-5">
+                                <div class="row ">
+                                    <div class="col-sm-12 col-lg-12">
 
-                                        <label for="inputEmail" style="color:green;" class="">Nom produit<span style="background-colol:red;">*</span></span></label>
+                                        <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Saisir le nom du produit</span></label>
                                         <div class="col-10">
                                             <input type="text" name="name_product"  id="name_product" class="form-control" placeholder="le nom du produit">
                                         </div>
                                     </div>   
                                 </div>
                                 <div class="row ">
-                                    <div class="col-sm-12 col-md-5">
-                                            <label for="inputPassword" style="color:green;" class="">Prix du produit</label>
+                                    <div class="col-sm-12 col-lg-12">
+                                            <label for="sexe" class="ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Saisir le prix du produit</span></label>
                                             <div class="col-10">
                                                 <input type="text" name="prix_product" id="prix_product" class="form-control" placeholder="Le prix du produit">
                                             </div>
                                       </div>
                                 </div>
                                <div class="row ">
-                                    <div class="col-sm-12 col-md-5">
-                                            <label for="inputPassword" style="color:green;" class="">	localisation du produit</label>
+                                    <div class="col-sm-12 col-lg-12">
+                                            <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;">	<span class="right badge badge-succes">La localisation du produit</span></label>
                                             <div class="col-10">
                                                 <input type="text" name="localite_product" id="localite_product" class="form-control" placeholder="Le prix du produit">
                                             </div>
                                       </div>
                                 </div>
-                               <div class="row ">
-                                    <div class="col-sm-12 col-md-5">
-                                            <label for="inputPassword" style="color:green;" class="">	 Votre numero de whatsapp</label>
+                               <div class="row  ">
+                                    <div class="col-sm-12 col-lg-12">
+                                            <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;">	 <span class="right badge badge-success">Saisir votre numero whatsapp</span></label>
                                             <div class="col-10">
                                                 <input type="text" name="whatsapp_product" id="whatsapp_product" class="form-control" placeholder="Le numero de whatsapp">
                                             </div>
                                       </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-5 ">
-                                        <label for="inputPassword" style="color:green;" class=" ">Description du produit</label>
+                                <div class="row ">
+                                    <div class="col-sm-12 col-lg-12 ">
+                                        <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">La description de l'annonce</span></label>
                                         <div class="col-10">
                                             <textarea name="description_product" id="description_product" cols="30" rows="3" class="form-control" placeholder="La description"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-5 ">
-                                        <label for="" style="color:green;" class=" ">Image du produit</label>
-                                        <div class="col-10" >
+                                <div class="row ">
+                                    <div class=" col-sm-12" style="width: 80px;">
+                                        <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Veuillez choisir une Image</span></label>
+                                        <div class="col-10">
                                             <input type="file" name="image_product" class="form-control" id="image_product">
                                         </div>
                                     </div>
                                     <div class="col-12" id="info_add_product"></div>
                                 </div>
-                                <div class="d-flex justify-content-between">         
+                                <div class="d-flex justify-content-between mt-4">         
                                     <button type="submit" style="width:150px;border-radius:5px;" class="btn btn-success">Enregistrer</button>
                                     <button type="reset" style="width:150px;border-radius:5px;" class="btn btn-danger" data-dismiss="modal">Annuler</button>
                                 </div>
