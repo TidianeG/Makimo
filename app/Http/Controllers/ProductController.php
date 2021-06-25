@@ -21,10 +21,7 @@ class ProductController extends Controller
         return view('publication');
       }
   
-  public function contact(){
-        return view('contact');
-      }
-
+  
 
 public function creat_annonce()
   {
@@ -112,6 +109,14 @@ public function creat_annonce()
        
          return view('editer', compact('products','immo','agence','forage','bank'));
       }
+      public function liste_contact()
+      {
+         $contacts = Contact::all();
+         
+      
+       
+         return view('liste_contact', compact('contacts'));
+      }
    
          public function edit($id)
       {
@@ -156,6 +161,14 @@ public function creat_annonce()
         $product->delete();
        return redirect('/annonce');
     }
+   public function contact() {
+      $immo = DB::table('categories')->where('name_category', 'like', "%immo%")->count();
+       $agence = DB::table('categories')->where('name_category', 'like', "%agenceimmo%")->count();
+      $forage = DB::table('categories')->where('name_category', 'like', "%forage%")->count();
+      $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
+
+      return view('contact', compact('immo','agence','forage','bank'));
+    }
     public function CreateForm(Request $request) {       
    
     $produit = new Contact();
@@ -181,8 +194,9 @@ public function creat_annonce()
 
       $sous_categories = Sous_Category::all();
       $categories = \App\Category::pluck('name_category','id');
+      $sms = DB::table('contacts')->count();
 
-      return view('layouts.admin', compact('sous_categories','categories'));
+      return view('layouts.admin', compact('sous_categories','categories','sms'));
    }
 
    public function add_category(Request $request)

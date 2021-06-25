@@ -20,6 +20,7 @@ Route::post('/contact', [
     'uses' => 'ProductController@CreateForm',
     'as' => 'contact.store'
 ]);
+Route::get('/liste_contact',  'ProductController@liste_contact');
 Route::post('/pub','ProductController@store')->name('store_annonce');
 Route::get("/pub/{id}/show", 'ProductController@show');
 Route::get('/annonce','ProductController@liste')->name('editer_produit');
