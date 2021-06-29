@@ -33,47 +33,25 @@
         </div>
     </section>
     <!-- End About Section -->
-    <!-- ======= Counts Section ======= -->
-    <!-- section id="counts" class="counts">
-      <div class="container">
-
-        <div class="row counters">
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">232</span>
-            <p>Clients</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">521</span>
-            <p>Projects</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">1,463</span>
-            <p>Hours Of Support</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">15</span>
-            <p>Hard Workers</p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>< End Counts Section -->
+   
 
 
     <section>
-      <!-- Recent Product Start -->
+     
+        
+                
+       
+         <!-- Recent Product Start -->
         <div class="recent-product product">
             <div class="">
                 <div class="section-header" style="background:#009970;">
                     <h4 class="text-center" style="color:white;">Annonce á la une</h4>
                 </div>
-                <div class="row align-items-center product-slider product-slider-4">
-                    <div class="col-lg-3 m-1">
+             <!-- Recent Product End -->    
+                <div class="shop-home-list section w-100">
+                    @foreach($products as $product)
+                        
+                        <div class="col-lg-3 m-1">
                         <div class="product-item">
                             <div class="product-title">
                                 <a href="#">Nom produit</a>
@@ -86,9 +64,7 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="{{asset('assets/img/maison1.jpg')}}" alt="Product Image">
-                                </a>
+                                <a href="/produit/{{$product->id }}/show"><img  src="{{$product->image_product ? asset($product->image_product) : asset('uploads/images/default.png')}}" alt="#"></a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
                                     <a href="#"><i class="fa fa-heart"></i></a>
@@ -96,127 +72,116 @@
                                 </div>
                             </div>
                             <div class="product-price">
-                                <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
+                                <h4><span></span>{{$product->prix_product}} FCFA</h4>
+                                <a class="btn" href=""><i class="fa fa-eye"></i>Voir les details</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 m-1">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="#">Nom produit</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="{{asset('assets/img/maison2.jpg')}}" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 m-1">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="#">Nom produit</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="{{asset('assets/img/maison3.jpg')}}" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 m-1">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="#">Nom produit</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="{{asset('assets/img/maison4.jpg')}}" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 m-1">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="#">Nom produit</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="{{asset('assets/img/maison5.jpg')}}" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
-                            </div>
-                        </div>
-                    </div>
+                 @endforeach
                 </div>
             </div>
         </div>
-        <!-- Recent Product End -->
+         <!-- Recent Product Start -->
+        
+            
+    </section>
+    <section>
+     
+        
+                
+       
+         <!-- Recent Product Start -->
+        <div class="recent-product product">
+            <div class="">
+                <div class="section-header" style="background:#009970;">
+                    <h4 class="text-center" style="color:white;">Annonce á la une</h4>
+                </div>
+             <!-- Recent Product End -->    
+                <div class="shop-home-list section w-100">
+                    @foreach($products as $product)
+                        
+                        <div class="col-lg-3 m-1">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Nom produit</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="/produit/{{$product->id }}/show"><img  src="{{$product->image_product ? asset($product->image_product) : asset('uploads/images/default.png')}}" alt="#"></a>
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h4><span></span>{{$product->prix_product}} FCFA</h4>
+                                <a class="btn" href=""><i class="fa fa-eye"></i>Voir les details</a>
+                            </div>
+                        </div>
+                    </div>
+                 @endforeach
+                </div>
+            </div>
+        </div>
+         <!-- Recent Product Start -->
+        
+            
+    </section>
+    <section>
+     
+        
+                
+       
+         <!-- Recent Product Start -->
+        <div class="recent-product product">
+            <div class="">
+                <div class="section-header" style="background:#009970;">
+                    <h4 class="text-center" style="color:white;">Annonce á la une</h4>
+                </div>
+             <!-- Recent Product End -->    
+                <div class="shop-home-list section w-100">
+                    @foreach($products as $product)
+                        
+                        <div class="col-lg-3 m-1">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">Nom produit</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <img  src="{{$product->image_product ? asset($product->image_product) : asset('uploads/images/default.png')}}" alt="#">
+                                <div class="product-action">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <h4><span></span>{{$product->prix_product}} FCFA</h4>
+                                <a class="btn" href="/pub/{{$product->id }}/show"><i class="fa fa-eye"></i>Voir les details de l'annonce</a>
+                            </div>
+                        </div>
+                    </div>
+                 @endforeach
+                </div>
+            </div>
+        </div>
+         <!-- Recent Product Start -->
+        
+            
     </section>
 
     <!-- ======= Why Us Section ======= -->
@@ -313,72 +278,36 @@
            ">Poster votre annonce</span></span></a></li>
         </div>
     </section><!-- End Cta Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
+     <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts mt-5" style="background-color: white; border: 2px solid green;">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <div class="section-title">
-              <h2>Contact</h2>
-              <p>Si vous désirez nous contacter,
-                  obtenir des informations, veuillez nous laisser un message avec vos coordonnées, nous nous efforcerons de vous répondre dans les plus brefs délais.
-                </p>
-            </div>
+
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up" style="color: green;">232</span>
+            <p style="color: black;">Clients</p>
           </div>
 
-          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
-            <div class="info mt-4">
-              <i class="icofont-google-map"></i>
-              <h4>Adresse:</h4>
-              <p>Xxxxxxxxxxxxx, Xxxxxxx, Xxxxxxxx</p>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 mt-4">
-                <div class="info">
-                  <i class="icofont-envelope"></i>
-                  <h4>Email:</h4>
-                  <p>contact@makimo.com</p>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="info w-100 mt-4">
-                  <i class="icofont-phone"></i>
-                  <h4>Téléphone:</h4>
-                  <p>+xxx xxxxxxxxxxxxx</p>
-                </div>
-              </div>
-            </div>
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
-              <div class="form-row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Votre Nom" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
-                </div>
-                <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Votre Eamil" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Objet" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validate"></div>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                <div class="validate"></div>
-              </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Envoyer Message</button></div>
-            </form>
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up" style="color: green;">521</span>
+            <p style="color: black;">Annonces</p>
           </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up" style="color: green;">1,463</span>
+            <p style="color: black;">Chiffre d'affaires</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up" style="color: green;">15</span>
+            <p style="color: black;">Partenaires</p>
+          </div>
+
         </div>
 
       </div>
-    </section><!-- End Contact Section -->
+    </section>
+
+    
     @endsection

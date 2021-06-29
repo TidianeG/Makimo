@@ -70,7 +70,7 @@
         <div class="recent-product product">
             <div class="">
                 <div class="section-header" style="background:#009970;">
-                    <h4 class="text-center" style="color:white;"><span class="right badge badge-danger">Annonce  Immo á la une</span></h4>
+                    <h4 class="text-center" style="color:white;"><span class="right badge badge-danger">Annonce FORAGE á la une</span></h4>
                 </div>
                 <div class="row align-items-center product-slider product-slider-4">
                     <div class="col-lg-3 m-1">
@@ -230,28 +230,28 @@
                 <div class="col-xl-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                   <div class="icon-box mt-4 mt-xl-0">
                   <a href="/immo"><i class="icofont-home"></i></a>
-                    <h4>Annonce IMMO</h4>
+                    <a href="/immo"><h4>Annonce IMMO</h4></a>
                     <p>Cette Rubrique permettre au particulier ou courtier de faire leur annonce dans le domaine immobilier .</p>
                   </div>
                 </div>
                 <div class="col-xl-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
                   <div class="icon-box mt-4 mt-xl-0">
                    <a href="/agence"><i class="icofont-building"></i></a>
-                    <h4>Agence Immo</h4>
+                    <a href="/agence"><h4>Agence Immo</h4></a>
                     <p>Avec cette rubrique les agences immobilieres vont faire l'annonce de leur propre produit immobilier .</p>
                   </div>
                 </div>
                 <div class="col-xl-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                   <div class="icon-box mt-4 mt-xl-0">
                     <a href="/forage"><i class="icofont-water-drop"></i></a>
-                    <h4>Conception de Forage</h4>
+                    <a href="/forage"><h4>Conception de Forage</h4><a href="/forage">
                     <p>Cette rubrique permettra aux entreprises specialises dans la conception de forage de pouvoir faire leur annonce pour divers types de forages.</p>
                   </div>
                 </div>
                 <div class="col-xl-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
                   <div class="icon-box mt-4 mt-xl-0">
                     <a href="/banque"><i class="icofont-bank-transfer"></i></a>
-                    <h4>Institut financier</h4>
+                    <a href="/banque"><h4>Institut financier</h4></a>
                     <p>Par le biais de cette rubrique les banques et instituts financiers peuvent faire des annoncent pour les differentes possibilites de pret ou de financement sur le plan immobilier .</p>
                   </div>
                 </div>
@@ -311,73 +311,9 @@
         <div class="d-flex justify-content-center ">
           <li class="btn btn-danger"><a href="/pub"><span style="color: white;
            ">Poster votre annonce</span></span></a></li>
+        </div>
     </section><!-- End Cta Section -->
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <div class="section-title">
-              <h2>Contact</h2>
-              <p>Si vous désirez nous contacter,
-                  obtenir des informations, veuillez nous laisser un message avec vos coordonnées, nous nous efforcerons de vous répondre dans les plus brefs délais.
-                </p>
-            </div>
-          </div>
-
-          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
-            <div class="info mt-4">
-              <i class="icofont-google-map"></i>
-              <h4>Adresse:</h4>
-              <p>Xxxxxxxxxxxxx, Xxxxxxx, Xxxxxxxx</p>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 mt-4">
-                <div class="info">
-                  <i class="icofont-envelope"></i>
-                  <h4>Email:</h4>
-                  <p>contact@makimo.com</p>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="info w-100 mt-4">
-                  <i class="icofont-phone"></i>
-                  <h4>Téléphone:</h4>
-                  <p>+xxx xxxxxxxxxxxxx</p>
-                </div>
-              </div>
-            </div>
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
-              <div class="form-row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Votre Nom" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
-                </div>
-                <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Votre Eamil" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Objet" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validate"></div>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                <div class="validate"></div>
-              </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Envoyer Message</button></div>
-            </form>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
+   
     @endsection

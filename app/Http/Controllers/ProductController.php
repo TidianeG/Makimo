@@ -28,10 +28,10 @@ public function creat_annonce()
       $categories = \App\Category::pluck('name_category','id');
      // $properties = \App\Property::pluck('name_property','id');
       $sous_category = Sous_Category::pluck('name','id');
-       $immo = DB::table('categories')->where('name_category', 'like', "%immo%")->count();
-       $agence = DB::table('categories')->where('name_category', 'like', "%agenceimmo%")->count();
-      $forage = DB::table('categories')->where('name_category', 'like', "%forage%")->count();
-      $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
+       $immo = DB::table('categories')->where('name_category', 'like', "%Immo%")->count();
+       $agence = DB::table('categories')->where('name_category', 'like', "%Agence%")->count();
+      $forage = DB::table('categories')->where('name_category', 'like', "%Forage%")->count();
+      $bank = DB::table('categories')->where('name_category', 'like', "%Banque%")->count();
 
       return view('publication', compact('categories','sous_category','immo','agence','forage','bank'));
   }
@@ -87,6 +87,11 @@ public function creat_annonce()
   
          $product = Product::find($id);
          $products = DB::table('products')->whereIn('id', [$id])->paginate(1);
+          $immo = DB::table('categories')->where('name_category', 'like', "%immo%")->count();
+         $agence = DB::table('categories')->where('name_category', 'like', "%agenceimmo%")->count();
+         $forage = DB::table('categories')->where('name_category', 'like', "%forage%")->count();
+         $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
+
     //$property = Property::all();
     //$properties = DB::table('properties')->whereIn('id', [$id]) ;
      
@@ -95,7 +100,7 @@ public function creat_annonce()
      
     
    
-         return view("show", compact('product','products'));
+         return view("show", compact('product','products','immo','agence','forage','bank'));
 
 	       }
 	       public function liste()

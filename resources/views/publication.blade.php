@@ -68,7 +68,7 @@
                                     <div class="col-sm-12 col-lg-12">
                                             <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;">	<span class="right badge badge-succes">La localisation du produit</span></label>
                                             <div class="col-10">
-                                                <input type="text" name="localite_product" id="localite_product" class="form-control" placeholder="Le prix du produit">
+                                                <input type="text" name="localite_product" id="localite_product" class="form-control" placeholder="localisation du produit">
                                             </div>
                                       </div>
                                 </div>

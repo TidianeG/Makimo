@@ -13,13 +13,16 @@ use App\Sous_Category;
 class AccueuilController extends Controller
 {
     public function accueuil(){
+      $products = DB::table('products')->paginate(6);//paginate(6);
+      $product = \App\Product::All();
     	$category= Category::All();
+      $sous_rubrique = \App\Sous_Category::pluck('name','id');
     	$immo = DB::table('categories')->where('name_category', 'like', "%immo%")->count();
     	$agence = DB::table('categories')->where('name_category', 'like', "%agenceimmo%")->count();
     	$forage = DB::table('categories')->where('name_category', 'like', "%forage%")->count();
     	$bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
 
-        return view('accueuil',compact('category','immo','agence','forage','bank'));
+        return view('accueuil',compact('category','immo','agence','forage','bank','sous_rubrique','products','product'));
     }
     
     // récupérationdes donner d'utilisteur
