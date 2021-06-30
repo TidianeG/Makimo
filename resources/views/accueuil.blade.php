@@ -73,7 +73,7 @@
                             </div>
                             <div class="product-price">
                                 <h4><span></span>{{$product->prix_product}} FCFA</h4>
-                                <a class="btn" href=""><i class="fa fa-eye"></i>Voir les details</a>
+                                <a class="btn" href="/pub/{{$product->id }}/show"><i class="fa fa-eye"></i>Voir les details</a>
                             </div>
                         </div>
                     </div>
@@ -122,7 +122,7 @@
                             </div>
                             <div class="product-price">
                                 <h4><span></span>{{$product->prix_product}} FCFA</h4>
-                                <a class="btn" href=""><i class="fa fa-eye"></i>Voir les details</a>
+                                <a class="btn" href="/pub/{{$product->id }}/show"><i class="fa fa-eye"></i>Voir les details</a>
                             </div>
                         </div>
                     </div>
