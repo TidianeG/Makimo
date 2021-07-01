@@ -1,12 +1,12 @@
 @extends('layouts.app')
-  @section('content')
-                    @if (session('success'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('success') }}
-                        </div>
-                    @endif
+    @section('content')
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
                    
-                <div class="container  col-md-6 card" style="width: 98rem;">
+                <div class="  card" style="">
                     <form action="{{route('store_annonce')}}" method="POST" enctype="multipart/form-data" id="add_products">
                                 @csrf
                                 @if($errors->any())
@@ -17,13 +17,14 @@
                                 <div class="">   
                                     <div class="card-header">
                                      
-                                     <h3 style="font-weight: bold;font-size: 27px; color:green;">VEUILLEZ POSTER UNE ANNONCE </h3>
+                                     <h3 style="font-weight: bold;font-size: 27px; color:green;" class="text-center">VEUILLEZ POSTER UNE ANNONCE </h3>
                                     </div>
                                     <div class="form-group col-lg-12 ">
-                                        <label for="sexe" class="  " style="color:green;font-weight: bold;"><p>
-                
-                <span class="right badge badge-success">Selectionnez le Rubrique</span>
-              </p></label>
+                                        <label for="sexe" class="" style="color:green;font-weight: bold;">
+                                            <p>
+                                                <span class="right badge badge-success">Selectionnez le Rubrique</span>
+                                            </p>
+                                        </label>
                                         <div class="col-10">
                                             <select name="category_id" id="name_cat" class="form-control">
                                                 <option value=""></option>
@@ -97,7 +98,7 @@
                                     </div>
                                     <div class="col-12" id="info_add_product"></div>
                                 </div>
-                                <div class="d-flex justify-content-between mt-4">         
+                                <div class="d-flex justify-content-around mt-4 mb-4">         
                                     <button type="submit" style="width:150px;border-radius:5px;" class="btn btn-success">Enregistrer</button>
                                     <button type="reset" style="width:150px;border-radius:5px;" class="btn btn-danger" data-dismiss="modal">Annuler</button>
                                 </div>

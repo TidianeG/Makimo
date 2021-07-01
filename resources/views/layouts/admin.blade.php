@@ -80,8 +80,7 @@
         <a class="nav-link" data-toggle="dropdown" href="/liste_contact" >
           <i class="far fa-comments"></i>
           <span class="badge badge-danger navbar-badge">{{$sms}}</span>
-        </a>
-        
+        </a>  
       </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
@@ -131,7 +130,6 @@
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->

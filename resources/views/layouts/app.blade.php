@@ -153,7 +153,7 @@
 
       </div>
     </section><!-- End Clients Section -->
-  <main id="main" class="container">
+  <main id="main" class="container mt-4">
         @yield('content')
   </main><!-- End #main -->
 
