@@ -11,13 +11,19 @@
                     <input type="text" class="form-control w-100" placeholder="Que rechercher vous?">
                 </div>
                 <div class="col-12 col-md-3 ">
-                    <select name="" id="" class="w-100">
-                      <option value="">TOUTES LES CATEGORIES</option>
+                    <select name="" id="" class="w-100">TOUTES LES RUBRIQUES
+                      <option value="" style="font-weight: bold;color: green;">TOUTES LES RUBRIQUES </option>
+                                                @foreach($categories as $key => $value)
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
                     </select>
                 </div>
                 <div class="col-12 col-md-3 ">
-                    <select name="" id="" class="w-100">
-                      <option value="">LOCALITE</option>
+                    <select name="" id="" class="w-100">LOCALITES
+                      <option value="" style="font-weight: bold;color: green;">LOCALITES </option>
+                                                @foreach($localite as $key => $value)
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
                     </select>
                 </div>
                 <div class="col-12 col-md-3 ">

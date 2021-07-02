@@ -21,8 +21,10 @@ class AccueuilController extends Controller
     	$agence = DB::table('categories')->where('name_category', 'like', "%agenceimmo%")->count();
     	$forage = DB::table('categories')->where('name_category', 'like', "%forage%")->count();
     	$bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
+         $categories = \App\Category::pluck('name_category','id');
+         $localite =   \App\Product::pluck('localite_product','id');
 
-        return view('accueuil',compact('category','immo','agence','forage','bank','sous_rubrique','products','product'));
+        return view('accueuil',compact('localite','category','categories','immo','agence','forage','bank','sous_rubrique','products','product'));
     }
     
     // récupérationdes donner d'utilisteur
@@ -38,8 +40,10 @@ class AccueuilController extends Controller
       $agence = DB::table('categories')->where('name_category', 'like', "%agenceimmo%")->count();
       $forage = DB::table('categories')->where('name_category', 'like', "%forage%")->count();
       $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
+       $rubrique_immo = DB::table('products')->whereIn('category_id',[1])->paginate(6);
+          $product = \App\Product::All();
       
-      return view('immo',compact('category','immo','agence','forage','bank'));
+      return view('immo',compact('category','immo','agence','forage','bank','rubrique_immo','product'));
    }
    public function agence(){
      $category= Category::All();
@@ -47,15 +51,19 @@ class AccueuilController extends Controller
       $agence = DB::table('categories')->where('name_category', 'like', "%agenceimmo%")->count();
       $forage = DB::table('categories')->where('name_category', 'like', "%forage%")->count();
       $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
-      return view('agence',compact('category','immo','agence','forage','bank'));
+      $rubrique_agence = DB::table('products')->whereIn('category_id',[2])->paginate(6);
+          $product = \App\Product::All();
+      return view('agence',compact('category','immo','agence','forage','bank','rubrique_agence','product'));
    }public function banque(){
     $category= Category::All();
       $immo = DB::table('categories')->where('name_category', 'like', "%immo%")->count();
       $agence = DB::table('categories')->where('name_category', 'like', "%agenceimmo%")->count();
       $forage = DB::table('categories')->where('name_category', 'like', "%forage%")->count();
       $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
+      $rubrique_banque = DB::table('products')->whereIn('category_id',[3])->paginate(6);
+          $product = \App\Product::All();
      
-      return view('banque',compact('category','immo','agence','forage','bank'));
+      return view('banque',compact('category','immo','agence','forage','bank','rubrique_banque','product'));
    }
    public function forage(){
     $category= Category::All();
@@ -63,8 +71,10 @@ class AccueuilController extends Controller
       $agence = DB::table('categories')->where('name_category', 'like', "%agenceimmo%")->count();
       $forage = DB::table('categories')->where('name_category', 'like', "%forage%")->count();
       $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
-     
-      return view('forage',compact('category','immo','agence','forage','bank'));
+      $rubrique_forage = DB::table('products')->whereIn('category_id',[4])->paginate(6);
+          $product = \App\Product::All();
+
+        return view('forage',compact('category','immo','agence','forage','bank','rubrique_forage','product'));
    }
      
   
