@@ -90,7 +90,7 @@
              <!-- Recent Product End -->    
                 <div class="row align-items-center product-slider product-slider-4">
                     @foreach($products as $product)
-                      <div class="col-12 col-md-3 m-1">
+                      <div class="col-lg-3">
                         <div class="product-item">
                             <div class="product-title">
                                 <a href="#">{{$product->name_product}}</a>
