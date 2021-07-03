@@ -11,27 +11,74 @@
                     <input type="text" class="form-control w-100" placeholder="Que rechercher vous?">
                 </div>
                 <div class="col-12 col-md-3 ">
-                    <select name="" id="" class="w-100">
-                      <option value="">TOUTES LES CATEGORIES</option>
+                    <select name="" id="" class="w-100">TOUTES LES RUBRIQUES
+                      <option value="" style="font-weight: bold;color: green;">TOUTES LES RUBRIQUES </option>
+                                                @foreach($category as $key => $value)
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
                     </select>
                 </div>
                 <div class="col-12 col-md-3 ">
-                    <select name="" id="" class="w-100">
-                      <option value="">LOCALITE</option>
+                    <select name="" id="" class="w-100">LOCALITES
+                      <option value="" style="font-weight: bold;color: green;">LOCALITES </option>
+                                                @foreach($localite as $key => $value)
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
                     </select>
                 </div>
                 <div class="col-12 col-md-3 ">
                     <button class="btn btn-success w-100" type="submit">RECHERCHER</button>
                 </div>
               </div>
-              
+              <div class="card mt-2">
+                <div class="card-header" id="search_avance" style="color:#009970;font-weight:bold;cursor:pointer;">RECHERCHE AVANCEE</div>
+                  <div class="card-body" id="show_search_avance" style="background:#009970;display:none;  ">
+                      <form action="">
+                          <div class="row">
+                              <div class="col-6 col-md-3">
+                                  <label for="" style="color:white;">Prix entre</label>
+                                  <input type="text" class="form-control" placeholder="Prix min">
+                              </div>
+                              <div class="col-6 col-md-3">
+                                  <label for="" style="color:white;">Et</label>
+                                  <input type="text" class="form-control" placeholder="Prix max">
+                              </div>
+                              <div class="col-6 col-md-3">
+                                  <label for="" style="color:white;">Type d'annonce</label>
+                                  <select name="" id="">
+                                      <option value="">Indifferent</option>
+                                      <option value=""></option>
+                                  </select>
+                              </div>
+                              <div class="col-6 col-md-3">
+                                  <label for="" style="color:white;">Type d'annonceur</label>
+                                  <select name="" id="">
+                                      <option value="">Indifferent</option>
+                                      <option value=""></option>
+                                  </select>
+                              </div>
+                          </div>
+                          <hr class="bg-white">
+                          <div class="row">
+                                <div class="col-md-3">
+                                    <input type="radio"> <label for="" style="color:white;">Avec photo</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio"> <label for="" style="color:white;">A la une</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio"> <label for="" style="color:white;">Urgent</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio"> <label for="" style="color:white;">Encadrée</label>
+                                </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
             </form>
         </div>
-        <div class="card">
-            <div class="card-header" style="color:#009970;font-weight:bold;cursor:pointer;">RECHERCHE AVANCEE</div>
-            <div class="card-body" style="background:#009970;display:none;  "></div>
-        </div>
-
+        
     </section>
     <!-- End About Section -->
     <!-- ======= Counts Section ======= -->
@@ -212,5 +259,15 @@
     </section><!-- End Cta Section -->
 
     <!-- ======= Contact Section ======= -->
-   
+    <script>
+            document.getElementById('search_avance').addEventListener('click', function(){
+                if(document.getElementById('show_search_avance').style.display=="none"){
+                    document.getElementById('show_search_avance').style.display="block";
+                }
+
+                else{
+                    document.getElementById('show_search_avance').style.display="none";
+                }
+            });
+      </script>
     @endsection

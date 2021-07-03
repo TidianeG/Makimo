@@ -66,29 +66,31 @@
 
         <nav class="nav-menu d-none d-lg-block">
           <ul>
-            
-           <li class="drop-down"><a href=""> Immo <span class="badge badge-info right">{{$immo}}</span></a>
+          <li class=""><a href="/"> Accueuil</span></a>
+             
+            </li>
+           <li class="drop-down"><a href="#"> Immo <span class="badge badge-info right">{{$immo ?? ''}}</span></a>
               <ul>
                 <li><a href="#">terrain</a></li>
                 <li><a href="#">maison</a>
                 </li>
               </ul>
             </li>
-            <li class="drop-down"><a href="">Agence Immo <span class="badge badge-info right">{{$agence}}</span></a>
+            <li class="drop-down"><a href="#">Agence Immo <span class="badge badge-info right">{{$agence ?? ''}}</span></a>
               <ul>
                 <li><a href="#">terrain</a></li>
                 <li><a href="#">maison</a>
                 </li>
               </ul>
             </li>
-            <li class="drop-down"><a href="">forage<span class="badge badge-info right">{{$forage}}</span></a>
+            <li class="drop-down"><a href="#">forage<span class="badge badge-info right">{{$forage ?? ''}}</span></a>
               <ul>
                 <li><a href="#">forage domestique</a></li>
                 <li><a href="#">forage rural</a>
                 </li>
               </ul>
             </li>
-            <li class="drop-down"><a href="">Banque<span class="badge badge-info right">{{$bank}}</span></a>
+            <li class="drop-down"><a href="#">Banque<span class="badge badge-info right">{{$bank ?? ''}}</span></a>
               <ul>
                 <li><a href="#">banque</a></li>
                 <li><a href="#">coperative habitat</a>
@@ -96,12 +98,32 @@
               </ul>
             </li>
           
-            <li class="drop-down"><a href="">Compte</a>
+            <li class="drop-down"><a href="#">Compte</a>
               <ul>
-                <li><a href="#">Se connecter</a></li>
-                <li><a href="#">Creer un compte</a>
-                <li><a href="#">Passe oublie ?</a>
-                </li>
+              <?php
+									if (auth()->guest()){
+								?>
+										<li><a href="/login" > <i class="fas fa-user-lock fa-md fa-fw mr-2 text-gray-400" aria-hidden="true"></i>Se connecter</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#myModal"> <i class="fas fa-sign-in-alt fa-md fa-fw mr-2 text-gray-400" aria-hidden="true"></i>Creer un compte</a></li>
+                    <li><a href="#" > <i class="fas fa-sign-in-alt fa-md fa-fw mr-2 text-gray-400" aria-hidden="true"></i>Passe oublié?</a></li>
+								<?php    
+								}
+									else{                                 
+								?>
+                   <li><a href="#" > <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" aria-hidden="true"></i>Mon compte</a></li>
+
+                   <li><a href="#" > <i class="fas fa-luggage-cart fa-sm fa-fw mr-2 text-gray-400" aria-hidden="true"></i>Mes annonces</a></li>					
+										<div class="dropdown-divider"></div>
+                    <li>
+												<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Deconnection
+												</a>
+												<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+													@csrf
+												</form>
+										</li>
+								<?php   
+									}
+								?>
               </ul>
             </li>
             <li class="get-started"><a href="/pub">Poster votre annonce</a></li>
@@ -153,9 +175,112 @@
 
       </div>
     </section><!-- End Clients Section -->
-  <main id="main" class="container mt-4">
+    @if (session('success_info'))
+    		<div class=" mt-5 alert alert-success">{{session('success_info')}}</div>
+  		@endif
+		@if (session('danger_info'))
+    		<div class="mt-5 alert alert-danger">{{session('danger_info')}}</div>
+  		@endif
+  <main id="main" class="container mt-4 mb-4">
         @yield('content')
   </main><!-- End #main -->
+
+    <!-- start modal incription-->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+				<div class="modal-header" style="height:auto !important;background:#009970  ;">
+					<div class="mb-1 modal-title w-100 ">
+						<img src="images/embleme.PNG" alt="" >
+						<h4 class="text-center" style="color:white;">Makimo-Inscription</h4>
+					</div>
+					
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+					
+				</div>
+				<div class="modal-body container">
+				    <form action="/ajouter_user" method="post" id="inscription">
+											@csrf 
+											<div class="row">
+												<div class="form-group col-12">
+													<label for="inputEmail" class="ml-3" style="font-weight:bold;color:black;">Prénom</label>
+													<div class="col-12">
+														<input type="text" class="form-control h-50" id="prenom_client" name="prenom" placeholder="Votre Prenom">
+													</div>
+												</div>
+												<div class="col-12" id="info-prenom" class=""></div>
+											</div>
+											<div class="row">
+												<div class="form-group col-12 ">
+													<label for="inputPassword" class="ml-3" style="font-weight:bold;color:black;">Nom</label>
+													<div class="col-12">
+											     		<input type="text" class="form-control h-50" id="nom_client" name="nom" placeholder="Votre Nom">
+													</div>
+												</div>
+												<div class="col-12" id="info-nom" class=""></div>
+											</div>
+											<div class="row ">
+												<div class="form-group col-12">
+														<label for="inputPassword" class="ml-3" style="font-weight:bold;color:black;">Adresse</label>
+														<div class="col-12">
+															<input type="text" class="form-control h-50" id="adresse_client" name="adresse" placeholder="Votre Adresse">
+														</div>
+												</div>
+												<div class="col-12" id="info-adresse" class=""></div>
+											</div>
+											<div class="row">
+												<div class="form-group col-12 ">
+													<label for="inputPassword" class="ml-3"style="font-weight:bold;color:black;">Telephone</label>
+													<div class="col-12">
+														<input type="text" class="form-control h-50" id="phone_client" name="phone" placeholder="Votre Telephone">
+													</div>
+												</div>
+												<div class="col-12" id="info-phone" class=""></div>
+											</div>
+											<div class="row">
+												<div class="form-group col-12 ">
+													<label for="inputPassword" class="ml-3" style="font-weight:bold;color:black;">Email</label>
+													<div class="col-12">
+														<input type="email" class="form-control h-50" id="email_client" name="email" placeholder="Votre mail">
+													</div>
+												</div>
+												<div class="col-12" id="info-email" class=""></div>
+											</div>
+											<div class="row ">
+												<div class="form-group col-12">
+														<label for="inputPassword" class="ml-3" style="font-weight:bold;color:black;">Mot de passe</label>
+														<div class="col-12">
+															<input type="password" class="form-control h-50" id="password_client" name="password" placeholder="Votre password">
+														</div>
+												</div>
+												<div class="col-12" id="info-password" class=""></div>
+											</div>
+											<div class="row">
+												<div class="form-group col-12">
+													<label for="inputPassword"class="ml-3" style="font-weight:bold;color:black;">Cofirmer mot de passe</label>
+													<div class="col-12">
+														<input type="password" class="form-control h-50" id="confirme_pass" name="confirme_pass" placeholder="confirmer password">
+													</div>
+												</div>
+												<div class="col-12" id="info-confirme_pass" class=""></div>
+											</div>
+											<div class="d-flex justify-content-around mb-4">         
+												<button type="submit" style="width:150px;border-radius:50px;height:30px !important;background:#009970; color:white;" class="">Enregistrer</button>
+												<button type="reset" style="width:150px;border-radius:50px;height:30px !important;background:#BE1E2D; color:white;" class="" data-dismiss="modal">Annuler</button>
+											</div>
+											
+										</form>
+										<div class="d-flex justify-content-center mt-5">
+											<a href="/login"  class="redirect-login" style=""> <i class="fas fa-user-lock fa-md fa-fw mr-2 text-gray-400" aria-hidden="true"></i> Se connecter</a>
+										</div>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+		<!-- end modal inscription-->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -178,8 +303,8 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Tous nos liens</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Accueuil</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">A propos de nous</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Accueuil</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/contact">A propos de nous</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Maison</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Terrain</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Forage domestique</a></li>

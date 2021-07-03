@@ -81,65 +81,20 @@
     </section>
     <!-- End About Section -->
     <section>
-      <!-- Recent Product Start -->
+         <!-- Recent Product Start -->
         <div class="recent-product product">
-            <div class="">
+            <div class="container-fluid">
                 <div class="section-header" style="background:#009970;">
                     <h4 class="text-center" style="color:white;">Annonce á la une</h4>
                 </div>
              <!-- Recent Product End -->    
-                <div class="shop-home-list section w-100">
+                <div class="row align-items-center product-slider product-slider-4">
                     @foreach($products as $product)
                         
-                        <div class="col-lg-3 m-1">
+                      <div class="col-lg-3 m-1">
                         <div class="product-item">
                             <div class="product-title">
-                                <a href="#">Nom produit</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="/produit/{{$product->id }}/show"><img  src="{{$product->image_product ? asset($product->image_product) : asset('uploads/images/default.png')}}" alt="#"></a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                <h4><span></span>{{$product->prix_product}} FCFA</h4>
-                                <a class="btn" href="/pub/{{$product->id }}/show"><i class="fa fa-eye"></i>Voir les details</a>
-                            </div>
-                        </div>
-                    </div>
-                 @endforeach
-                </div>
-            </div>
-        </div>
-         <!-- Recent Product Start -->
-        
-            
-    </section>
-    <section>
-         <!-- Recent Product Start -->
-        <div class="recent-product product">
-            <div class="">
-                <div class="section-header" style="background:#009970;">
-                    <h4 class="text-center" style="color:white;">Annonce á la une</h4>
-                </div>
-             <!-- Recent Product End -->    
-                <div class="shop-home-list section w-100">
-                    @foreach($products as $product)
-                        
-                        <div class="col-lg-3 m-1">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="#">Nom produit</a>
+                                <a href="#">{{$product->name_product}}</a>
                                 <div class="ratting">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -157,18 +112,16 @@
                                 </div>
                             </div>
                             <div class="product-price">
-                                <h4><span></span>{{$product->prix_product}} FCFA</h4>
+                                <h4 style="color:white;">{{$product->prix_product}} FCFA</h4>
                                 <a class="btn" href="/pub/{{$product->id }}/show"><i class="fa fa-eye"></i>Voir les details de l'annonce</a>
                             </div>
                         </div>
-                    </div>
-                 @endforeach
+                      </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-         <!-- Recent Product Start -->
-        
-            
+         <!-- Recent Product Start -->  
     </section>
 
     <!-- ======= Why Us Section ======= -->

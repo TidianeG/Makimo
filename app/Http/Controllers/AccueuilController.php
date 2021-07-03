@@ -42,8 +42,9 @@ class AccueuilController extends Controller
       $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
        $rubrique_immo = DB::table('products')->whereIn('category_id',[1])->paginate(6);
           $product = \App\Product::All();
-      
-      return view('immo',compact('category','immo','agence','forage','bank','rubrique_immo','product'));
+          $localite =   \App\Product::pluck('localite_product','id');
+
+      return view('immo',compact('category','localite','immo','agence','forage','bank','rubrique_immo','product'));
    }
    public function agence(){
      $category= Category::All();
@@ -53,8 +54,11 @@ class AccueuilController extends Controller
       $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
       $rubrique_agence = DB::table('products')->whereIn('category_id',[2])->paginate(6);
           $product = \App\Product::All();
-      return view('agence',compact('category','immo','agence','forage','bank','rubrique_agence','product'));
-   }public function banque(){
+          $localite =   \App\Product::pluck('localite_product','id');
+      return view('agence',compact('category','localite','immo','agence','forage','bank','rubrique_agence','product'));
+   }
+   
+   public function banque(){
     $category= Category::All();
       $immo = DB::table('categories')->where('name_category', 'like', "%immo%")->count();
       $agence = DB::table('categories')->where('name_category', 'like', "%agenceimmo%")->count();
@@ -62,8 +66,8 @@ class AccueuilController extends Controller
       $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
       $rubrique_banque = DB::table('products')->whereIn('category_id',[3])->paginate(6);
           $product = \App\Product::All();
-     
-      return view('banque',compact('category','immo','agence','forage','bank','rubrique_banque','product'));
+          $localite =   \App\Product::pluck('localite_product','id');
+      return view('banque',compact('category','localite','immo','agence','forage','bank','rubrique_banque','product'));
    }
    public function forage(){
     $category= Category::All();
@@ -73,8 +77,8 @@ class AccueuilController extends Controller
       $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
       $rubrique_forage = DB::table('products')->whereIn('category_id',[4])->paginate(6);
           $product = \App\Product::All();
-
-        return view('forage',compact('category','immo','agence','forage','bank','rubrique_forage','product'));
+          $localite =   \App\Product::pluck('localite_product','id');
+        return view('forage',compact('category','localite','immo','agence','forage','bank','rubrique_forage','product'));
    }
      
   

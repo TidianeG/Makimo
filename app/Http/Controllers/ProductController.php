@@ -21,6 +21,7 @@ class ProductController extends Controller
         return view('publication');
       }
   
+  
 
 public function creat_annonce()
   {
@@ -76,7 +77,12 @@ public function creat_annonce()
          $produit->category_id = $request->input('category_id'); 
      //$produit->property_id = $request->input('property_id');  
          $produit->save();
-         return redirect()->back()->with('success', 'Votre annonce a été bien ajouté .');
+         if ($produit) {
+            return redirect()->back()->with('success', 'Votre annonce a été bien ajouté. Merci !!!!!!!');
+         }
+         else {
+            return redirect()->back()->with('danger', 'Annoce non ajouté, veuiller vérifier les informations entrées.');
+         }
      
       }
 
@@ -235,7 +241,7 @@ public function creat_annonce()
        public function add_sous_category(Request $request){
       
       $sous_category = new Sous_Category();
-       $name = $request->input('nom_sous_category');
+       $name = $request->input('name');
        $sous_categories= Sous_Category::where('name',$name)->first();      
       if(empty($sous_categories))
          {

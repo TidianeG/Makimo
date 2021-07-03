@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',  'AccueuilController@accueuil')->name('accueuil');
-Route::get('/pub',  'ProductController@creat_annonce')->name('creat_annonce');
+Route::get('/pub',  'ProductController@creat_annonce')->name('creat_annonce')->middleware('auth');
 Route::get('/contact',  'ProductController@contact');
 Route::post('/contact', [
     'uses' => 'ProductController@CreateForm',
@@ -28,17 +28,19 @@ Route::get('annonce/{id}/edit', 'ProductController@edit')->name('editer_produit'
 Route::patch('annonce/{id}/edit', 'ProductController@update1')->name('update_product');
 Route::delete('annonce/{id}','ProductController@destroy');
 Route::get('/tableau-de-bord','ProductController@admin');
-Route::post('/ajout-cat', "ProductController@add_category");
-Route::get('/ajout-cat', "ProductController@category")->name('add-cat');
-Route::post('/ajout-souscat', "ProductController@add_sous_category");
-Route::get('/ajout-souscat', "ProductController@sous_category")->name('add-sous');
+Route::post('/ajout-cat', "ProductController@add_category")->name('add-cat');
+Route::get('/ajout-cat', "ProductController@category");
+Route::post('/ajout-souscat', "ProductController@add_sous_category")->name('add-souscat');
+Route::get('/ajout-souscat', "ProductController@sous_category");
 //Route::post('/tableau-de-bord', "AccueuilController@affichage_souscategorie");
 Route::get('/affiche-cat', "ProductController@affiche_cat");
 Route::get('/affiche-souscat', "ProductController@affiche_souscat");
 Route::delete('/affiche-cat/{id}', "ProductController@destroy_cat");
 Route::delete('/affiche-souscat/{id}', "ProductController@destroy_souscat");
 Route::get('/search', "ProductController@search")->name('RECHERCHE.search');
-        
+
+Route::post('/ajouter_user', "HomeController@store")->name('add_user');
+
             // les rubriques
 Route::get('/immo','AccueuilController@immo')->name('accueuil');
 Route::get('/banque','AccueuilController@banque');
@@ -47,3 +49,6 @@ Route::get('/agence','AccueuilController@agence');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/logout', 'SessionsController@destroy');

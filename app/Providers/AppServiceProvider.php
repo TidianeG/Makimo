@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\User;
+use Illuminate\Support\Facades\Gate;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+         //
+         Gate::define('admin',function(User $user){
+            return $user->isAdmin();
+         });
+            Gate::define('moderator', function(User $user){
+             return $user->isModerator();
+         });
+            Gate::define('user', function(User $user){
+             return $user->isUser();
+         });
     }
 
     /**

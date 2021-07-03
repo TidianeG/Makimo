@@ -7,7 +7,7 @@
                     @endif
                    
                 <div class="container  col-md-6 card" style="width: 98rem;">
-                    <form action="{{route('add-sous')}}" method="POST" enctype="multipart/form-data" id="add_sous">
+                    <form action="{{route('add-souscat')}}" method="POST" enctype="multipart/form-data" id="add_sous">
                                 @csrf
                                 @if($errors->any())
                                 @foreach($errors->all() as $error)
