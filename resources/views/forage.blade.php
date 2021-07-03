@@ -31,6 +31,7 @@
             <div class="card-header" style="color:#009970;font-weight:bold;cursor:pointer;">RECHERCHE AVANCEE</div>
             <div class="card-body" style="background:#009970;display:none;  "></div>
         </div>
+
     </section>
     <!-- End About Section -->
     <!-- ======= Counts Section ======= -->
@@ -66,14 +67,21 @@
 
 
     <section>
-      <!-- Recent Product Start -->
+     
+        
+                
+       
+         <!-- Recent Product Start -->
         <div class="recent-product product">
             <div class="">
                 <div class="section-header" style="background:#009970;">
-                    <h4 class="text-center" style="color:white;"><span class="right badge badge-danger">Annonce FORAGE á la une</span></h4>
+                    <h4 class="text-center" style="color:white;">Rubrique Forage</h4>
                 </div>
-                <div class="row align-items-center product-slider product-slider-4">
-                    <div class="col-lg-3 m-1">
+             <!-- Recent Product End -->    
+                <div class="shop-home-list section w-100">
+                     @foreach($rubrique_forage as $product)
+                        
+                        <div class="col-lg-3 m-1">
                         <div class="product-item">
                             <div class="product-title">
                                 <a href="#">Nom produit</a>
@@ -86,9 +94,7 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="{{asset('assets/img/maison1.jpg')}}" alt="Product Image">
-                                </a>
+                                <a href="/produit/{{$product->id }}/show"><img  src="{{$product->image_product ? asset($product->image_product) : asset('uploads/images/default.png')}}" alt="#"></a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
                                     <a href="#"><i class="fa fa-heart"></i></a>
@@ -96,127 +102,18 @@
                                 </div>
                             </div>
                             <div class="product-price">
-                                <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
+                                <h4><span></span>{{$product->prix_product}} FCFA</h4>
+                                <a class="btn" href="/pub/{{$product->id }}/show"><i class="fa fa-eye"></i>Voir les details</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 m-1">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="#">Nom produit</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="{{asset('assets/img/maison2.jpg')}}" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 m-1">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="#">Nom produit</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="{{asset('assets/img/maison3.jpg')}}" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 m-1">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="#">Nom produit</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="{{asset('assets/img/maison4.jpg')}}" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 m-1">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="#">Nom produit</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="{{asset('assets/img/maison5.jpg')}}" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Acheter ou Louer</a>
-                            </div>
-                        </div>
-                    </div>
+                 @endforeach
                 </div>
             </div>
         </div>
-        <!-- Recent Product End -->
+         <!-- Recent Product Start -->
+        
+            
     </section>
 
     <!-- ======= Why Us Section ======= -->
@@ -314,5 +211,6 @@
         </div>
     </section><!-- End Cta Section -->
 
-    
+    <!-- ======= Contact Section ======= -->
+   
     @endsection

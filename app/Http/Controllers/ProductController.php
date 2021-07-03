@@ -21,7 +21,6 @@ class ProductController extends Controller
         return view('publication');
       }
   
-  
 
 public function creat_annonce()
   {

@@ -37,11 +37,12 @@ Route::get('/affiche-cat', "ProductController@affiche_cat");
 Route::get('/affiche-souscat', "ProductController@affiche_souscat");
 Route::delete('/affiche-cat/{id}', "ProductController@destroy_cat");
 Route::delete('/affiche-souscat/{id}', "ProductController@destroy_souscat");
+Route::get('/search', "ProductController@search")->name('RECHERCHE.search');
         
             // les rubriques
 Route::get('/immo','AccueuilController@immo')->name('accueuil');
-Route::get('/banque','AccueuilController@forage');
-Route::get('/forage','AccueuilController@banque');
+Route::get('/banque','AccueuilController@banque');
+Route::get('/forage','AccueuilController@forage');
 Route::get('/agence','AccueuilController@agence');
 Auth::routes();
 
