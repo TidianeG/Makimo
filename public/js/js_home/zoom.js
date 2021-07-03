@@ -16,3 +16,5 @@ function diminuer() {
         myImg.style.width = (width - 20) + "px";
     }
 }
+
+

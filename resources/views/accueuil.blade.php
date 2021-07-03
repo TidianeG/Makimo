@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
     @section('content')
 <!-- ======= Clients Section ======= -->
     <!-- ======= About Section ======= -->
@@ -24,24 +23,59 @@
                     <button class="btn btn-success w-100" type="submit">RECHERCHER</button>
                 </div>
               </div>
-              
+              <div class="card mt-2">
+                <div class="card-header" id="search_avance" style="color:#009970;font-weight:bold;cursor:pointer;">RECHERCHE AVANCEE</div>
+                  <div class="card-body" id="show_search_avance" style="background:#009970;display:none;  ">
+                      <form action="">
+                          <div class="row">
+                              <div class="col-6 col-md-3">
+                                  <label for="" style="color:white;">Prix entre</label>
+                                  <input type="text" class="form-control" placeholder="Prix min">
+                              </div>
+                              <div class="col-6 col-md-3">
+                                  <label for="" style="color:white;">Et</label>
+                                  <input type="text" class="form-control" placeholder="Prix max">
+                              </div>
+                              <div class="col-6 col-md-3">
+                                  <label for="" style="color:white;">Type d'annonce</label>
+                                  <select name="" id="">
+                                      <option value="">Indifferent</option>
+                                      <option value=""></option>
+                                  </select>
+                              </div>
+                              <div class="col-6 col-md-3">
+                                  <label for="" style="color:white;">Type d'annonceur</label>
+                                  <select name="" id="">
+                                      <option value="">Indifferent</option>
+                                      <option value=""></option>
+                                  </select>
+                              </div>
+                          </div>
+                          <hr class="bg-white">
+                          <div class="row">
+                                <div class="col-md-3">
+                                    <input type="radio"> <label for="" style="color:white;">Avec photo</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio"> <label for="" style="color:white;">A la une</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio"> <label for="" style="color:white;">Urgent</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio"> <label for="" style="color:white;">Encadrée</label>
+                                </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
             </form>
         </div>
-        <div class="card">
-            <div class="card-header" style="color:#009970;font-weight:bold;cursor:pointer;">RECHERCHE AVANCEE</div>
-            <div class="card-body" style="background:#009970;display:none;  "></div>
-        </div>
+        
     </section>
     <!-- End About Section -->
-   
-
-
     <section>
-     
-        
-                
-       
-         <!-- Recent Product Start -->
+      <!-- Recent Product Start -->
         <div class="recent-product product">
             <div class="">
                 <div class="section-header" style="background:#009970;">
@@ -86,59 +120,6 @@
             
     </section>
     <section>
-     
-        
-                
-       
-         <!-- Recent Product Start -->
-        <div class="recent-product product">
-            <div class="">
-                <div class="section-header" style="background:#009970;">
-                    <h4 class="text-center" style="color:white;">Annonce á la une</h4>
-                </div>
-             <!-- Recent Product End -->    
-                <div class="shop-home-list section w-100">
-                    @foreach($products as $product)
-                        
-                        <div class="col-lg-3 m-1">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="#">Nom produit</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="/produit/{{$product->id }}/show"><img  src="{{$product->image_product ? asset($product->image_product) : asset('uploads/images/default.png')}}" alt="#"></a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                <h4><span></span>{{$product->prix_product}} FCFA</h4>
-                                <a class="btn" href="/pub/{{$product->id }}/show"><i class="fa fa-eye"></i>Voir les details</a>
-                            </div>
-                        </div>
-                    </div>
-                 @endforeach
-                </div>
-            </div>
-        </div>
-         <!-- Recent Product Start -->
-        
-            
-    </section>
-    <section>
-     
-        
-                
-       
          <!-- Recent Product Start -->
         <div class="recent-product product">
             <div class="">
@@ -309,5 +290,16 @@
       </div>
     </section>
 
+      <script>
+            document.getElementById('search_avance').addEventListener('click', function(){
+                if(document.getElementById('show_search_avance').style.display=="none"){
+                    document.getElementById('show_search_avance').style.display="block";
+                }
+
+                else{
+                    document.getElementById('show_search_avance').style.display="none";
+                }
+            });
+      </script>
     
     @endsection

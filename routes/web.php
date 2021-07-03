@@ -43,3 +43,6 @@ Route::get('/immo','AccueuilController@immo')->name('accueuil');
 Route::get('/banque','AccueuilController@forage');
 Route::get('/forage','AccueuilController@banque');
 Route::get('/agence','AccueuilController@agence');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

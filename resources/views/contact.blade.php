@@ -81,7 +81,7 @@
                 <div class="validate"></div>
               </div>
              
-              <div class="text-center mr-3 "><button type="submit">Send Message</button></div>
+              <div class="text-center mr-3 "><button type="submit" class="btn btn-success">Envoyer Message</button></div>
             </form>
           </div>
         </div>
