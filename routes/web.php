@@ -52,3 +52,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/logout', 'SessionsController@destroy');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
