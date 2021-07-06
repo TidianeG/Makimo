@@ -1,27 +1,32 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
- <div class="table-responsive">
+<div class="table-responsive">
                         <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
-                                <th>ID Rubrique</th>
-                                <th>Nom Rubrique</th>
+                                
+                                <th>ID Localite</th>
+                                <th>Nom Localite</th>
                                 <th>Supprimer</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($categories as $category)
+                            @foreach($localities as $localite)
                                 <tr>
-                                    <th>{{$category->id}}</th>
-                                    <th>{{$category->name_category}}</th>
+                                     <th>{{$localite->id}}</th>
+                                    <th>{{$localite->name_localite}}</th>
+                                    
                                     <th>
-                                    <form action="affiche-cat/{{$category->id}}" method="post">
+                                    <form action="affiche-localite/{{$localite->id}}" method="post">
                                         @csrf
                                         @method('delete')
                                     <button type="submit" class="btn btn-danger " id="" style=""><i class="fas fa-trash-alt"></i></i></button> 
                                     </form>
                                     </th>
+                                    
+                                    
+                                    
                                 </tr>
                             @endforeach
                             </tbody>

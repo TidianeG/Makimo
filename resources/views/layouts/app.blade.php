@@ -90,7 +90,7 @@
                 </li>
               </ul>
             </li>
-            <li class="drop-down"><a href="#">Banque<span class="badge badge-info right">{{$bank ?? ''}}</span></a>
+            <li class="drop-down"><a href="#">Entreprise BTP<span class="badge badge-info right">{{$bank ?? ''}}</span></a>
               <ul>
                 <li><a href="#">banque</a></li>
                 <li><a href="#">coperative habitat</a>

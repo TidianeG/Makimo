@@ -20,10 +20,10 @@ class CreateProductsTable extends Migration
             $table->integer('prix_product');
             $table->string('image_product');
             $table->string('description_product');
-            $table->string('localite_product');
             $table->integer('whatsapp_product');
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('sous_category_id');
+            $table->unsignedInteger('localite_id');
             $table->timestamps();
         });
     }

@@ -37,6 +37,11 @@ Route::get('/affiche-cat', "ProductController@affiche_cat");
 Route::get('/affiche-souscat', "ProductController@affiche_souscat");
 Route::delete('/affiche-cat/{id}', "ProductController@destroy_cat");
 Route::delete('/affiche-souscat/{id}', "ProductController@destroy_souscat");
+Route::get('/affiche-localite', "ProductController@affiche_localite");
+Route::get('/ajout-localite', "ProductController@localite");
+Route::delete('/affiche-localite/{id}', "ProductController@destroy_localite");
+Route::post('/ajout-localite', "ProductController@add_localite")->name('add-localite');
+
 Route::get('/search', "ProductController@search")->name('RECHERCHE.search');
 
 Route::post('/ajouter_user', "HomeController@store")->name('add_user');

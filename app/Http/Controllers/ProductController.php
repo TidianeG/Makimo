@@ -12,6 +12,7 @@ use App\Contact;
 use App\Product;
 use App\Category;
 use App\Sous_Category;
+use App\Localite;
 
 class ProductController extends Controller
  {
@@ -28,6 +29,7 @@ public function creat_annonce()
       $categories = \App\Category::pluck('name_category','id');
      // $properties = \App\Property::pluck('name_property','id');
       $sous_category = Sous_Category::pluck('name','id');
+      $localite = Localite::pluck('name','id');
        $immo = DB::table('categories')->where('name_category', 'like', "%Immo%")->count();
        $agence = DB::table('categories')->where('name_category', 'like', "%Agence%")->count();
       $forage = DB::table('categories')->where('name_category', 'like', "%Forage%")->count();
@@ -48,7 +50,6 @@ public function creat_annonce()
          'name_product'=>'required|min:4',
          'prix_product' => 'required|min:3|numeric',
          'whatsapp_product' => 'numeric',
-         'localite_product' => 'required|min:3',
          'description_product' => 'max:1000000',
          'image_product' => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048',
          ]);
@@ -68,13 +69,13 @@ public function creat_annonce()
          }
          $produit->name_product = $request->input('name_product');
          $produit->prix_product = $request->input('prix_product');
-         $produit->localite_product = $request->input('localite_product');
          $produit->description_product = $request->input('description_product');
          $produit->whatsapp_product = $request->input('whatsapp_product');
 
 
          $produit->sous_category_id = $request->input('sous_category_id');
          $produit->category_id = $request->input('category_id'); 
+         $produit->localite_id = $request->input('localite_id'); 
      //$produit->property_id = $request->input('property_id');  
          $produit->save();
          if ($produit) {
@@ -285,6 +286,50 @@ public function destroy_souscat($id)
 
       return view('affiche-souscat', compact('sous_categories','categories'));
    }
-     
+
+
+
+
+
+
+
+
+public function destroy_localite($id)
+{   
+  
+   $localite = Localite::find($id);
+   if($localite)
+      $localite->delete();
+   return redirect('/affiche-localite');
+}
+
+
+  public function affiche_localite(){
+      $localities =Localite::all();
+      return view('affiche-localite', compact('localities'));
+   }
+
+
+  public function add_localite(Request $request)
+   {
+      $localite = new Localite();
+       $name = $request->input('name_localite');
+       $localities= Localite::where('name_localite',$name)->first();      
+      if(empty($localities))
+         {
+            $localite->name_localite=strtolower($name); 
+            $localite->save();
+            return redirect('/ajout-localite')->with('success', 'Localite ajoutée avec succès !!');
+         }
+      else{   
+         return redirect('/ajout-localite')->with('success', 'localité dèja ajoutée merci !!');
+     }
+    }
+
+       public function localite()
+   {
+      return view('ajout-localite') ;
+
+   }
 
 }

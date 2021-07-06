@@ -10,6 +10,7 @@ use  Illuminate\Database\Query\Builder;
 use App\Product;
 use App\Category;
 use App\Sous_Category;
+use App\Localite;
 class AccueuilController extends Controller
 {
     public function accueuil(){
@@ -22,7 +23,7 @@ class AccueuilController extends Controller
     	$forage = DB::table('categories')->where('name_category', 'like', "%forage%")->count();
     	$bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
          $categories = \App\Category::pluck('name_category','id');
-         $localite =   \App\Product::pluck('localite_product','id');
+         $localite =   \App\Localite::pluck('name_localite','id');
 
         return view('accueuil',compact('localite','category','categories','immo','agence','forage','bank','sous_rubrique','products','product'));
     }
