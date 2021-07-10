@@ -88,7 +88,7 @@
                     <h4 class="text-center" style="color:white;">Annonce á la une</h4>
                 </div>
              <!-- Recent Product End -->    
-                <div class="row align-items-center product-slider product-slider-4">
+                <div class="row">
                     @foreach($products as $product)
                       <div class="col-lg-3">
                         <div class="product-item">
@@ -112,7 +112,7 @@
                             </div>
                             <div class="product-price">
                                 <h4 style="color:white;">{{$product->prix_product}} FCFA</h4>
-                                <a class="btn" href="/pub/{{$product->id }}/show"><i class="fa fa-eye"></i>Voir les details de l'annonce</a>
+                                <a class="btn" href="/pub/{{$product->id }}/show">Les Details </a>
                             </div>
                         </div>
                       </div>
@@ -120,6 +120,7 @@
                 </div>
             </div>
         </div>
+
          <!-- Recent Product Start -->  
     </section>
 

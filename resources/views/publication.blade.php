@@ -45,6 +45,18 @@
                                             </select>
                                         </div>
                                   </div>
+                                  <div class="form-group col-lg-12">
+                                        <label for="sexe" class="  " style="color:green;font-weight: bold;"><span class="right badge badge-success">Selectionnez la localite </span></label>
+                                        <div class="col-10">
+                                            <select name="localite_id" id="name_localite" class="form-control">
+                                                <option value=""></option>
+                                                @foreach($localite as $key => $value)
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                  </div>
+                                    
                                     
                                 
                                
@@ -65,14 +77,7 @@
                                             </div>
                                       </div>
                                 </div>
-                               <div class="row ">
-                                    <div class="col-sm-12 col-lg-12">
-                                            <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;">	<span class="right badge badge-succes">La localisation du produit</span></label>
-                                            <div class="col-10">
-                                                <input type="text" name="localite_product" id="localite_product" class="form-control" placeholder="localisation du produit">
-                                            </div>
-                                      </div>
-                                </div>
+                               
                                <div class="row  ">
                                     <div class="col-sm-12 col-lg-12">
                                             <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;">	 <span class="right badge badge-success">Saisir votre numero whatsapp</span></label>

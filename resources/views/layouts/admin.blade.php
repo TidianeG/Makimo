@@ -415,7 +415,7 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
+          <div class=" col-2">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
@@ -430,7 +430,9 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          
+          <!-- ./col -->
+          <div class="col-2">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
@@ -444,36 +446,36 @@
               <a href="/affiche-souscat" class="small-box-footer">Liste des sous-rubriques <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-2">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-yellow">
               <div class="inner">
-                <h3>44</h3>
+                <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                <p>User Registrations</p>
+                <p><a href="/ajout-localite"><span class="right badge badge-danger">Ajout des Localités</span></a></p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/affiche-localite" class="small-box-footer">Liste des localités  <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class=" col-2">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>{{$sms}}</h3>
 
-                <p>Unique Visitors</p>
+                <p>Les messages</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/liste_contact" class="small-box-footer">Lire les messages <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+        </div>
           <!-- ./col -->
         </div>
         <!-- /.row -->

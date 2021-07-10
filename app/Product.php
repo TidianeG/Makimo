@@ -14,7 +14,9 @@ class Product extends Model
     public function sous_category(){
         return $this ->belongsTo('App\Sous_Category');
     }
-    
+    public function localite(){
+        return $this ->belongsTo('App\Localite');
+    }
    
     
 }
