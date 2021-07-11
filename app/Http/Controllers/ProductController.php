@@ -103,6 +103,10 @@ public function creat_annonce()
          }
 
          else{
+            $business->name_business = $request->input('name_entreprise');
+            $business->description_business = $request->input('description_entreprise');
+            $business->save();
+
             $produit->name_product = $request->input('name_product');
             $produit->prix_product = $request->input('prix_product');
             $produit->description_product = $request->input('description_product');
@@ -111,13 +115,12 @@ public function creat_annonce()
 
             $produit->sous_category_id = $request->input('sous_category_id');
             $produit->category_id = $request->input('category_id'); 
-            $produit->localite_id = $request->input('localite_id'); 
+            $produit->localite_id = $request->input('localite_id');
+            $produit->business_id = $business->id;
       //$produit->property_id = $request->input('property_id');  
             $produit->save();
 
-            $business->name_business = $request->input('name_entreprise');
-            $business->description_business = $request->input('description_entreprise');
-            $business->save();
+            
             if ($business) {
                return redirect()->back()->with('success', 'Votre annonce a été bien ajouté. Merci !!!!!!!');
             }

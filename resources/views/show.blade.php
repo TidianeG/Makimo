@@ -7,19 +7,24 @@
           <div class="row h-auto my-5">
               <div class="col-sm-12 col-md-6">
                  
-                 <div id="myImg"><img  class="img-fluid rounded " src="{{$product->image_product ? asset($product->image_product) : asset('uploads/images/default.png')}}" alt="" style="height:100% !important;width:380%"></div>
+                 <div id="myImg"><img  class="img-fluid rounded " src="{{$product->image_product ? asset($product->image_product) : asset('uploads/images/default.png')}}" alt="" style="height:100% !important;width: 100%;"></div>
                   <p>
-      
-      
-
-    </p>
+        </p>
               </div>
-              <div class="card border-success mb-3 ml-5" style="width: 500px;">
-  <div class="card-header" style="font-weight: bold;"><H4>Contacter L'annonceur</H4></div>
-
-                    <div class="" >
-                      <H6>logo de l'entreprise. </H6><br>
-                      
+              <div class="card border-success " style="width: 500px;">
+                <div class="card-header" style="font-weight: bold;"><H4>Contacter L'annonceur</H4></div>
+                    <div class="card-header">
+                      <div>
+                          <?php
+                              if ($product->category->name_category !="immo") {
+                          ?>
+                          <span><img  class="img-fluid rounded " src="{{$product->business->image_business ? asset($product->business->image_business) : asset('uploads/images/default.png')}} " alt="" style="height:50% !important;width:50%"></span>
+                          <?php
+                               }
+                          ?>
+                      </div>
+                      <div class="d-flex "><span>Nom entreprise :  </span><h5 style="color:red;" class="ml-3">{{$product->business->name_business ?? "Particulier"}}</h5></div>
+                      <div><h6>Description</h6><p style="color:red;">{{$product->business->description_business ?? ""}}</p></div>
                       <H6>Cliquez et discuter par whatsapp </H6><br>
                      <a href="https://wa.me/{{$product->whatsapp_product}}" target="_blank" class="text-white btn btn-success"><i class="fab fa-whatsapp text-white"></i><span class="ml-3">Discuter par whatsapp</span></a><br>
                      <br>
