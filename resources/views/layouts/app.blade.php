@@ -242,15 +242,7 @@
 												</div>
 												<div class="col-12" id="info-phone" class=""></div>
 											</div>
-											<div class="row">
-												<div class="form-group col-12 ">
-													<label for="inputPassword" class="ml-3" style="font-weight:bold;color:black;">Email</label>
-													<div class="col-12">
-														<input type="email" class="form-control h-50" id="email_client" name="email" placeholder="Votre mail">
-													</div>
-												</div>
-												<div class="col-12" id="info-email" class=""></div>
-											</div>
+											
 											<div class="row ">
 												<div class="form-group col-12">
 														<label for="inputPassword" class="ml-3" style="font-weight:bold;color:black;">Mot de passe</label>

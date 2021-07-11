@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('sous_category_id');
             $table->unsignedInteger('localite_id');
+            $table->unsignedInteger('business_id')->nullable();
             $table->timestamps();
         });
     }

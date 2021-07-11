@@ -45,6 +45,7 @@
                                             </select>
                                         </div>
                                   </div>
+                                  
                                   <div class="form-group col-lg-12">
                                         <label for="sexe" class="  " style="color:green;font-weight: bold;"><span class="right badge badge-success">Selectionnez la localite </span></label>
                                         <div class="col-10">
@@ -56,10 +57,38 @@
                                             </select>
                                         </div>
                                   </div>
-                                    
-                                    
-                                
-                               
+                                <!--  champs professionnel ....... -->
+                                <div id="pro_entreprise" style="display:none;">
+                                    <div class="alert alert-primary m-3">Informations sur l'entreprise</div>
+                                    <div class="row" >
+                                        <div class="col-sm-12 col-lg-12">
+
+                                            <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Saisir le nom de l'entreprise</span></label>
+                                            <div class="col-10">
+                                                <input type="text" name="name_entreprise"  id="name_product" class="form-control" placeholder="le nom de l'entreprise">
+                                            </div>
+                                        </div>   
+                                    </div>
+                                    <div class="row" >
+                                        <div class="col-sm-12 col-lg-12">
+
+                                            <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Description de l'entreprise</span></label>
+                                            <div class="col-10">
+                                                <textarea name="description_entreprise" id="description_entreprise" cols="30" rows="3" class="form-control" placeholder="La description"></textarea>
+                                            </div>
+                                        </div>   
+                                    </div>
+                                    <div class="row" >
+                                        <div class=" col-sm-12" style="width: 80px;">
+                                            <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">logo de l'entreprise</span></label>
+                                            <div class="col-10">
+                                                <input type="file" name="logo_entreprise" class="form-control" id="logo_entreprise">
+                                            </div>
+                                        </div>
+                                        <div class="col-12" id="info_add_product"></div>
+                                    </div>
+                                </div>
+                                <!--  fin champs professionnel -->
                                 <div class="row ">
                                     <div class="col-sm-12 col-lg-12">
 
@@ -107,12 +136,30 @@
                                     <button type="submit" style="width:150px;border-radius:5px;" class="btn btn-success">Enregistrer</button>
                                     <button type="reset" style="width:150px;border-radius:5px;" class="btn btn-danger" data-dismiss="modal">Annuler</button>
                                 </div>
+                                <style>
+                                    span{
+                                        margin-top:20px  !important;
+                                        margin-bottom:10px i !important;
+                                    }
+                                </style>
                     </form>
                 </div>
             <script>
+                let name_cat= document.getElementById('name_cat');
+                let pro_entreprise= document.getElementById('pro_entreprise');
+                 
+                    name_cat.addEventListener('change',function(){
+                        if (name_cat.value !=1 && name_cat.value !="") {
+                        pro_entreprise.style.display="block";
+                        }
+                        else{
+                            pro_entreprise.style.display="none";
+                        }
+                    });
+
                 // récuperation des ids des inputs
                 let add_products= document.getElementById('add_products');
-                let name_cat= document.getElementById('name_cat');
+                
                 let name_vendeur= document.getElementById('name_vendeur');
                 let name_product= document.getElementById('name_product');
                 let prix_product= document.getElementById('prix_product');
@@ -128,7 +175,7 @@
                 let inputs=[];
                 inputs[0] = name_cat;inputs[1] = name_sous_cat;inputs[2] = name_product;inputs[3] = prix_product;inputs[4] = localite_product; inputs[5] =name_vendeur; inputs[6] =description_product; inputs[7] = image_product;inputs[8] = whatsapp_product;inputs[8]=sous_category_id;
 
-
+               
                 for (let i = 0; i < inputs.length; i++) {
                     inputs[i].addEventListener('focus',function(){
                         for (let j = 0; j < i; j++) {

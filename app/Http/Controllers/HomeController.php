@@ -35,21 +35,19 @@ class HomeController extends Controller
          'prenom'=> 'required',
          'phone' => 'required ',
          'adresse' => 'required',
-         'email' => 'required ',
          'password' => 'required ',
          
      ]);
        $client = new Client();
        $client->nom_client = $request->input('nom');
        $client->prenom_client = $request->input('prenom');
-       $client->telephone_client = $request->input('phone');
        $client->adresse_client = $request->input('adresse');
        $client->save();
     ///////////////////////////////////////////////////
     /////////////////////////////////////////////////////
        $user= new User();
        $user->name= $client->prenom_client;
-       $user->email = $request->input('email');
+       $user->email = $request->input('phone');
        $user->roles = "user";
        $user->client_id = $client->id;
        $user->password=Hash::make($request->input('password'));

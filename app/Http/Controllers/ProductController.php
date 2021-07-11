@@ -13,7 +13,7 @@ use App\Product;
 use App\Category;
 use App\Sous_Category;
 use App\Localite;
-
+use App\Business;
 class ProductController extends Controller
  {
     //
@@ -29,13 +29,13 @@ public function creat_annonce()
       $categories = \App\Category::pluck('name_category','id');
      // $properties = \App\Property::pluck('name_property','id');
       $sous_category = Sous_Category::pluck('name','id');
-      $localite = Localite::pluck('name','id');
+      $localite = Localite::pluck('name_localite','id');
        $immo = DB::table('categories')->where('name_category', 'like', "%Immo%")->count();
        $agence = DB::table('categories')->where('name_category', 'like', "%Agence%")->count();
       $forage = DB::table('categories')->where('name_category', 'like', "%Forage%")->count();
       $bank = DB::table('categories')->where('name_category', 'like', "%Banque%")->count();
 
-      return view('publication', compact('categories','sous_category','immo','agence','forage','bank'));
+      return view('publication', compact('categories','localite','sous_category','immo','agence','forage','bank'));
   }
    public function uploadImage(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null){
       $name = !is_null($filename) ? $filename : str_random('25');
@@ -46,6 +46,7 @@ public function creat_annonce()
    public function store(Request $request)
       {
       $produit = new Product();
+      $business = new Business();
       $data = $request->validate([
          'name_product'=>'required|min:4',
          'prix_product' => 'required|min:3|numeric',
@@ -54,36 +55,79 @@ public function creat_annonce()
          'image_product' => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048',
          ]);
      
-      if($request->has('image_product')){
-         //On enregistre l'image dans un dossier
-         $image = $request->file('image_product');
-         //Nous allons definir le nom de notre image en combinant le nom du produit et un timestamp
-         $image_name = Str::slug($request->input('image_product')).'_'.time();
-         //Nous enregistrerons nos fichiers dans /uploads/images dans public
-         $folder = '/uploads/images/';
-         //Nous allons enregistrer le chemin complet de l'image dans la BD
-         $produit->image_product = $folder.$image_name.'.'.$image->getClientOriginalExtension();
-         //Maintenant nous pouvons enregistrer l'image dans le dossier en utilisant la methode uploadImage();
-         $file = $this->uploadImage($image, $folder, 'public', $image_name);
+         if($request->has('image_product')){
+            //On enregistre l'image dans un dossier
+            $image = $request->file('image_product');
+            //Nous allons definir le nom de notre image en combinant le nom du produit et un timestamp
+            $image_name = Str::slug($request->input('image_product')).'_'.time();
+            //Nous enregistrerons nos fichiers dans /uploads/images dans public
+            $folder = '/uploads/images/';
+            //Nous allons enregistrer le chemin complet de l'image dans la BD
+            $produit->image_product = $folder.$image_name.'.'.$image->getClientOriginalExtension();
+            //Maintenant nous pouvons enregistrer l'image dans le dossier en utilisant la methode uploadImage();
+            $file = $this->uploadImage($image, $folder, 'public', $image_name);
          
          }
-         $produit->name_product = $request->input('name_product');
-         $produit->prix_product = $request->input('prix_product');
-         $produit->description_product = $request->input('description_product');
-         $produit->whatsapp_product = $request->input('whatsapp_product');
+         if($request->has('logo_entreprise')){
+            //On enregistre l'image dans un dossier
+            $image = $request->file('logo_entreprise');
+            //Nous allons definir le nom de notre image en combinant le nom du produit et un timestamp
+            $image_name = Str::slug($request->input('logo_entreprise')).'_'.time();
+            //Nous enregistrerons nos fichiers dans /uploads/images dans public
+            $folder = '/uploads/images/';
+            //Nous allons enregistrer le chemin complet de l'image dans la BD
+            $business->image_business = $folder.$image_name.'.'.$image->getClientOriginalExtension();
+            //Maintenant nous pouvons enregistrer l'image dans le dossier en utilisant la methode uploadImage();
+            $file = $this->uploadImage($image, $folder, 'public', $image_name);
+         
+         }
+         $cat=Category::find($request->input('category_id'));
+         if ($cat->name_category=="immo") {
+            $produit->name_product = $request->input('name_product');
+            $produit->prix_product = $request->input('prix_product');
+            $produit->description_product = $request->input('description_product');
+            $produit->whatsapp_product = $request->input('whatsapp_product');
 
 
-         $produit->sous_category_id = $request->input('sous_category_id');
-         $produit->category_id = $request->input('category_id'); 
-         $produit->localite_id = $request->input('localite_id'); 
-     //$produit->property_id = $request->input('property_id');  
-         $produit->save();
-         if ($produit) {
-            return redirect()->back()->with('success', 'Votre annonce a été bien ajouté. Merci !!!!!!!');
+            $produit->sous_category_id = $request->input('sous_category_id');
+            $produit->category_id = $request->input('category_id'); 
+            $produit->localite_id = $request->input('localite_id'); 
+      //$produit->property_id = $request->input('property_id');  
+            $produit->save();
+            if ($produit) {
+               return redirect()->back()->with('success', 'Votre annonce a été bien ajouté. Merci !!!!!!!');
+            }
+            else {
+               return redirect()->back()->with('danger', 'Annoce non ajouté, veuiller vérifier les informations entrées.');
+            }
          }
-         else {
-            return redirect()->back()->with('danger', 'Annoce non ajouté, veuiller vérifier les informations entrées.');
+
+         else{
+            $produit->name_product = $request->input('name_product');
+            $produit->prix_product = $request->input('prix_product');
+            $produit->description_product = $request->input('description_product');
+            $produit->whatsapp_product = $request->input('whatsapp_product');
+
+
+            $produit->sous_category_id = $request->input('sous_category_id');
+            $produit->category_id = $request->input('category_id'); 
+            $produit->localite_id = $request->input('localite_id'); 
+      //$produit->property_id = $request->input('property_id');  
+            $produit->save();
+
+            $business->name_business = $request->input('name_entreprise');
+            $business->description_business = $request->input('description_entreprise');
+            $business->save();
+            if ($business) {
+               return redirect()->back()->with('success', 'Votre annonce a été bien ajouté. Merci !!!!!!!');
+            }
+            else {
+               return redirect()->back()->with('danger', 'Annoce non ajouté, veuiller vérifier les informations entrées.');
+            }
          }
+
+         
+         
      
       }
 
