@@ -16,7 +16,10 @@
               </div>
               <div class="card border-success mb-3 ml-5" style="width: 500px;">
   <div class="card-header" style="font-weight: bold;"><H4>Contacter L'annonceur</H4></div>
+
                     <div class="" >
+                      <H6>logo de l'entreprise. </H6><br>
+                      
                       <H6>Cliquez et discuter par whatsapp </H6><br>
                      <a href="https://wa.me/{{$product->whatsapp_product}}" target="_blank" class="text-white btn btn-success"><i class="fab fa-whatsapp text-white"></i><span class="ml-3">Discuter par whatsapp</span></a><br>
                      <br>

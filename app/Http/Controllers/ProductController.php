@@ -134,7 +134,7 @@ public function creat_annonce()
 
          public function show($id) 
          {
-  
+         $business = Business::find($id);
          $product = Product::find($id);
          $products = DB::table('products')->whereIn('id', [$id])->paginate(1);
           $immo = DB::table('categories')->where('name_category', 'like', "%immo%")->count();
@@ -150,7 +150,7 @@ public function creat_annonce()
      
     
    
-         return view("show", compact('product','products','immo','agence','forage','bank'));
+         return view("show", compact('product','products','immo','agence','forage','bank','business'));
 
 	       }
 	       public function liste()
