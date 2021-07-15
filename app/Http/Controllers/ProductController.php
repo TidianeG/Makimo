@@ -37,6 +37,23 @@ public function creat_annonce()
 
       return view('publication', compact('categories','localite','sous_category','immo','agence','forage','bank'));
   }
+public function credit()
+  {
+      $categories = \App\Category::pluck('name_category','id');
+     // $properties = \App\Property::pluck('name_property','id');
+      $sous_category = Sous_Category::pluck('name','id');
+      $localite = Localite::pluck('name_localite','id');
+       $immo = DB::table('categories')->where('name_category', 'like', "%Immo%")->count();
+       $agence = DB::table('categories')->where('name_category', 'like', "%Agence%")->count();
+      $forage = DB::table('categories')->where('name_category', 'like', "%Forage%")->count();
+      $bank = DB::table('categories')->where('name_category', 'like', "%Banque%")->count();
+
+      return view('credit', compact('categories','localite','sous_category','immo','agence','forage','bank'));
+  }
+
+
+
+
    public function uploadImage(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null){
       $name = !is_null($filename) ? $filename : str_random('25');
       $file = $uploadedFile->storeAs($folder, $name.'.'.$uploadedFile->getClientOriginalExtension(), $disk);
@@ -155,8 +172,8 @@ public function creat_annonce()
    
          return view("show", compact('product','products','immo','agence','forage','bank','business'));
 
-	       }
-	       public function liste()
+         }
+         public function liste()
       {
          $products = Product::all();
          $immo = DB::table('categories')->where('name_category', 'like', "%immo%")->count();

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/',  'AccueuilController@accueuil')->name('accueuil');
 Route::get('/pub',  'ProductController@creat_annonce')->name('creat_annonce')->middleware('auth');
+Route::get('/credit',  'ProductController@credit')->name('achat_credit')->middleware('auth');
 Route::get('/contact',  'ProductController@contact');
 Route::post('/contact', [
     'uses' => 'ProductController@CreateForm',
@@ -50,7 +51,7 @@ Route::post('/ajouter_user', "HomeController@store")->name('add_user');
 Route::get('/immo','AccueuilController@immo')->name('accueuil');
 Route::get('/banque','AccueuilController@banque');
 Route::get('/forage','AccueuilController@forage');
-Route::get('/agence','AccueuilController@agence');
+Route::get('/btp','AccueuilController@agence');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

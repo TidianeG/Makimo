@@ -18,7 +18,7 @@
                           <?php
                               if ($product->category->name_category !="immo") {
                           ?>
-                          <span><img  class="img-fluid rounded " src="{{$product->business->image_business ? asset($product->business->image_business) : asset('uploads/images/default.png')}} " alt="" style="height:50% !important;width:50%"></span>
+                          <span><img  class="img-fluid rounded " src="{{$product->image_product ?  asset($product->image_product) : asset('uploads/images/default.png')}} " alt="" style="height:50% !important;width:50%"></span>
                           <?php
                                }
                           ?>

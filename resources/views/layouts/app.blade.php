@@ -287,35 +287,34 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Makimo</h3>
             <p>
-              Xxxxxxxxxxx <br>
-              Xxxxxxx, Xxxxxxx<br>
-              Guinnée <br><br>
+              Makimo est une plateforme d'annonce immobiliere qui permet aux particuliers et entreprises évoluant dans l'immobiler et la conception de Forage de publier leurs annonces .<br>
               <strong>Téléphone:</strong> +Xxx xxxxxxxx<br>
               <strong>Email:</strong> contact@example.com<br>
             </p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Tous nos liens</h4>
+            <h4>MENTIONS LÉGALES</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="/">Accueuil</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/contact">A propos de nous</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Maison</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terrain</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Forage domestique</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Forage rural</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Condition générale d'utilisation(CGU)</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Condition générale de Vente(CGV)</a></li>
+              
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Nos banques</h4>
+            <h4>RUBRIQUES ET CREDITS</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Banques</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Cooperative habitat</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              
+              <li><i class="bx bx-chevron-right"></i> <a href="/immo">Immo</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/agence">Agence Immo</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/forage">Conncepteur de Forage</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/btp">Entreprise BTP</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/btp">Acheter du crédit</a></li>
             </ul>
           </div>
+
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Newsletter</h4>
@@ -333,7 +332,7 @@
 
       <div class="mr-md-auto text-center text-md-left">
         <div class="copyright">
-          &copy; Copyright <strong><span>2021</span></strong>All Rights Reserved
+          &copy; Copyright <strong><span>2021</span></strong>Tous droits réservés .
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->
