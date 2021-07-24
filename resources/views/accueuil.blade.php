@@ -157,7 +157,7 @@
                   <div class="icon-box mt-4 mt-xl-0">
                     <a href="/banque"><i class="icofont-bank-transfer"></i></a>
                     <a href="/banque"><h4>Institut financier</h4></a>
-                    <p>Par le biais de cette rubrique les banques et instituts financiers peuvent faire des annoncent pour les differentes possibilites de pret ou de financement sur le plan immobilier .</p>
+                    <p>Par le biais de cette rubrique les banques et instituts financiers peuvent faire des annoncent pour les differentes possibilites de pret ou de financement sur le plan immobilier.</p>
                   </div>
                 </div>
                 
@@ -211,7 +211,7 @@
      <section id="cta" class="cta " style="background:#009970">
         <div class="text-center mb-4">
             <h1 class="" style="color:white;font-weight:bold;">Avez-vous quelque chose à vendre ou à louer?</h1>
-            <h5 style="color:white;">Vendez vos produits et services en ligne GRATUITEMENT.Avec MAKIMO c'est plus facile que vous pouvez l'imaginez!</h>
+            <h5 style="color:white;">Vendez vos produits et services en ligne GRATUITEMENT. Avec MAKIMO c'est plus facile que vous pouvez l'imaginez!</h>
         </div>
         <div class="d-flex justify-content-center ">
            <li class="btn btn-danger"><a href="/pub"><span style="color: white;
