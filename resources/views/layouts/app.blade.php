@@ -115,7 +115,8 @@
 								?>
                    <li><a href="#" > <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" aria-hidden="true"></i>Mon compte</a></li>
 
-                   <li><a href="#" > <i class="fas fa-luggage-cart fa-sm fa-fw mr-2 text-gray-400" aria-hidden="true"></i>Mes annonces</a></li>					
+                   <li><a href="#" > <i class="fas fa-luggage-cart fa-sm fa-fw mr-2 text-gray-400" aria-hidden="true"></i>Mes annonces</a></li>	
+                   <li><a href="#" data-toggle="modal" data-target="#nbrecreditapp"> <i class="fas fa-luggage-cart fa-sm fa-fw mr-2 text-gray-400" aria-hidden="true"></i>Mes crédits</a></li>					
 										<div class="dropdown-divider"></div>
                     <li>
 												<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Deconnection
@@ -275,8 +276,40 @@
 				</div>
 			</div>
 		</div>
+
+
 		<!-- end modal inscription-->
 
+          <!-- Affichage solde credit-->
+          <div class="modal fade " id="nbrecreditapp" >
+                    <div class="modal-dialog  modal-md">
+                        <div class="modal-content" >
+                            <!-- Modal Header -->
+                            <div class="modal-header" style="">
+                                <button type="button" class="close bg-danger btn-danger " data-dismiss="modal">&times;</button>
+                            </div>                        
+                            <!-- Modal body -->
+                            <div class="modal-body ">
+							    <div class="  " style="height:100%;overflow-x:scroll;">
+								    <div class="card auth ">
+									    <div class="card-header auth-header login100-form-title" >
+										    <span class="login100-form-title-1" style="size:16px;font-weight:bold;">
+											Mes Crédits
+										    </span>
+									    </div>                        
+									    <!-- Modal body -->
+									    <div class="card-body  p-3" style="height:auto;">
+                                                <div class="d-flex justify-content-center">
+                                                    <h5>Solde : <span style="color:red;">{{Auth::user()->client->credit->nbre_credit ?? ""}}  CREDITS</span></h5>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end affichage solde credit--> 
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
@@ -311,7 +344,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="/agence">Agence Immo</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/forage">Conncepteur de Forage</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/btp">Entreprise BTP</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="/btp">Acheter du crédit</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/credit">Acheter du crédit</a></li>
             </ul>
           </div>
 

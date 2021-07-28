@@ -40,6 +40,9 @@ class User extends Authenticatable
     public function client(){
         return $this->belongsTo('App\Client');   
     }
+    public function product(){
+        return $this->hasMany('App\Product');
+    }
 
         public function isAdmin(){
         return strtolower(@$this->roles) === 'admin'? true : false;
@@ -51,6 +54,6 @@ class User extends Authenticatable
         }
         /**Cett méthode va determiner si le user connecté a un role user*/
         public function isUser(){
-        return strtolower(@$this->roles) === 'user'? true : false;
+            return strtolower(@$this->roles) === 'user'? true : false;
         }
 }

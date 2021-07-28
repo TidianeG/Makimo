@@ -23,8 +23,9 @@ class CreateProductsTable extends Migration
             $table->integer('whatsapp_product');
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('sous_category_id');
-            $table->unsignedInteger('localite_id')->nullable();
+            $table->unsignedInteger('localite_id');
             $table->unsignedInteger('business_id')->nullable();
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }

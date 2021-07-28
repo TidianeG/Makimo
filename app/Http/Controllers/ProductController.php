@@ -14,6 +14,9 @@ use App\Category;
 use App\Sous_Category;
 use App\Localite;
 use App\Business;
+use App\Credit;
+use App\Pack;
+use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
  {
     //
@@ -47,8 +50,8 @@ public function credit()
        $agence = DB::table('categories')->where('name_category', 'like', "%Agence%")->count();
       $forage = DB::table('categories')->where('name_category', 'like', "%Forage%")->count();
       $bank = DB::table('categories')->where('name_category', 'like', "%Banque%")->count();
-
-      return view('credit', compact('categories','localite','sous_category','immo','agence','forage','bank'));
+      $packs=Pack::all();
+      return view('credit', compact('packs', 'categories','localite','sous_category','immo','agence','forage','bank'));
   }
 
 
@@ -60,95 +63,103 @@ public function credit()
    
       return $file;
       }   
-   public function store(Request $request)
-      {
-      $produit = new Product();
-      $business = new Business();
-      $data = $request->validate([
-         'name_product'=>'required|min:4',
-         'prix_product' => 'required|min:3|numeric',
-         'whatsapp_product' => 'numeric',
-         'description_product' => 'max:1000000',
-         'image_product' => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048',
-         ]);
-     
-         if($request->has('image_product')){
-            //On enregistre l'image dans un dossier
-            $image = $request->file('image_product');
-            //Nous allons definir le nom de notre image en combinant le nom du produit et un timestamp
-            $image_name = Str::slug($request->input('image_product')).'_'.time();
-            //Nous enregistrerons nos fichiers dans /uploads/images dans public
-            $folder = '/uploads/images/';
-            //Nous allons enregistrer le chemin complet de l'image dans la BD
-            $produit->image_product = $folder.$image_name.'.'.$image->getClientOriginalExtension();
-            //Maintenant nous pouvons enregistrer l'image dans le dossier en utilisant la methode uploadImage();
-            $file = $this->uploadImage($image, $folder, 'public', $image_name);
+   public function store(Request $request){
+         $mes_credit=Credit::find(Auth::user()->client->credit_id);
          
-         }
-         if($request->has('logo_entreprise')){
-            //On enregistre l'image dans un dossier
-            $image = $request->file('logo_entreprise');
-            //Nous allons definir le nom de notre image en combinant le nom du produit et un timestamp
-            $image_name = Str::slug($request->input('logo_entreprise')).'_'.time();
-            //Nous enregistrerons nos fichiers dans /uploads/images dans public
-            $folder = '/uploads/images/';
-            //Nous allons enregistrer le chemin complet de l'image dans la BD
-            $business->image_business = $folder.$image_name.'.'.$image->getClientOriginalExtension();
-            //Maintenant nous pouvons enregistrer l'image dans le dossier en utilisant la methode uploadImage();
-            $file = $this->uploadImage($image, $folder, 'public', $image_name);
-         
-         }
-         $cat=Category::find($request->input('category_id'));
-         if ($cat->name_category=="immo") {
-            $produit->name_product = $request->input('name_product');
-            $produit->prix_product = $request->input('prix_product');
-            $produit->description_product = $request->input('description_product');
-            $produit->whatsapp_product = $request->input('whatsapp_product');
-
-
-            $produit->sous_category_id = $request->input('sous_category_id');
-            $produit->category_id = $request->input('category_id'); 
-            $produit->localite_id = $request->input('localite_id'); 
-      //$produit->property_id = $request->input('property_id');  
-            $produit->save();
-            if ($produit) {
-               return redirect()->back()->with('success', 'Votre annonce a été bien ajouté. Merci !!!!!!!');
-            }
-            else {
-               return redirect()->back()->with('danger', 'Annoce non ajouté, veuiller vérifier les informations entrées.');
-            }
-         }
-
-         else{
-            $business->name_business = $request->input('name_entreprise');
-            $business->description_business = $request->input('description_entreprise');
-            $business->save();
-
-            $produit->name_product = $request->input('name_product');
-            $produit->prix_product = $request->input('prix_product');
-            $produit->description_product = $request->input('description_product');
-            $produit->whatsapp_product = $request->input('whatsapp_product');
-
-
-            $produit->sous_category_id = $request->input('sous_category_id');
-            $produit->category_id = $request->input('category_id'); 
-            $produit->localite_id = $request->input('localite_id');
-            $produit->business_id = $business->id;
-      //$produit->property_id = $request->input('property_id');  
-            $produit->save();
-
+         if( $mes_credit->nbre_credit > 0){
+            $produit = new Product();
+            $business = new Business();
+            $data = $request->validate([
+            'name_product'=>'required|min:4',
+            'prix_product' => 'required|min:3|numeric',
+            'whatsapp_product' => 'numeric',
+            'description_product' => 'max:1000000',
+            'image_product' => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048',
+            ]);
+        
+            if($request->has('image_product')){
+               //On enregistre l'image dans un dossier
+               $image = $request->file('image_product');
+               //Nous allons definir le nom de notre image en combinant le nom du produit et un timestamp
+               $image_name = Str::slug($request->input('image_product')).'_'.time();
+               //Nous enregistrerons nos fichiers dans /uploads/images dans public
+               $folder = '/uploads/images/';
+               //Nous allons enregistrer le chemin complet de l'image dans la BD
+               $produit->image_product = $folder.$image_name.'.'.$image->getClientOriginalExtension();
+               //Maintenant nous pouvons enregistrer l'image dans le dossier en utilisant la methode uploadImage();
+               $file = $this->uploadImage($image, $folder, 'public', $image_name);
             
-            if ($business) {
-               return redirect()->back()->with('success', 'Votre annonce a été bien ajouté. Merci !!!!!!!');
             }
-            else {
-               return redirect()->back()->with('danger', 'Annoce non ajouté, veuiller vérifier les informations entrées.');
+            if($request->has('logo_entreprise')){
+               //On enregistre l'image dans un dossier
+               $image = $request->file('logo_entreprise');
+               //Nous allons definir le nom de notre image en combinant le nom du produit et un timestamp
+               $image_name = Str::slug($request->input('logo_entreprise')).'_'.time();
+               //Nous enregistrerons nos fichiers dans /uploads/images dans public
+               $folder = '/uploads/images/';
+               //Nous allons enregistrer le chemin complet de l'image dans la BD
+               $business->image_business = $folder.$image_name.'.'.$image->getClientOriginalExtension();
+               //Maintenant nous pouvons enregistrer l'image dans le dossier en utilisant la methode uploadImage();
+               $file = $this->uploadImage($image, $folder, 'public', $image_name);
+            
+            }
+            $cat=Category::find($request->input('category_id'));
+            if ($cat->name_category=="immo") {
+               $produit->name_product = $request->input('name_product');
+               $produit->prix_product = $request->input('prix_product');
+               $produit->description_product = $request->input('description_product');
+               $produit->whatsapp_product = $request->input('whatsapp_product');
+   
+   
+               $produit->sous_category_id = $request->input('sous_category_id');
+               $produit->category_id = $request->input('category_id'); 
+               $produit->localite_id = $request->input('localite_id'); 
+            //$produit->property_id = $request->input('property_id'); 
+               $produit->user_id = Auth::user()->id; 
+               $produit->save();
+               $mes_credit->nbre_credit --;
+               $mes_credit->save();
+               if ($produit) {
+                  return redirect()->back()->with('success', 'Votre annonce a été bien ajouté. Merci !!!!!!!');
+               }
+               else {
+                  return redirect()->back()->with('danger', 'Annoce non ajouté, veuiller vérifier les informations entrées.');
+               }
+            }
+   
+            else{
+               $business->name_business = $request->input('name_entreprise');
+               $business->description_business = $request->input('description_entreprise');
+               $business->save();
+   
+               $produit->name_product = $request->input('name_product');
+               $produit->prix_product = $request->input('prix_product');
+               $produit->description_product = $request->input('description_product');
+               $produit->whatsapp_product = $request->input('whatsapp_product');
+   
+   
+               $produit->sous_category_id = $request->input('sous_category_id');
+               $produit->category_id = $request->input('category_id'); 
+               $produit->localite_id = $request->input('localite_id');
+               $produit->business_id = $business->id;
+               $produit->user_id = Auth::user()->id;
+            //$produit->property_id = $request->input('property_id');  
+               $produit->save();
+               
+               $mes_credit->nbre_credit --;
+               $mes_credit->save();
+               if ($business) {
+                  return redirect()->back()->with('success', 'Votre annonce a été bien ajouté. Merci !!!!!!!');
+               }
+               else {
+                  return redirect()->back()->with('danger', 'Annoce non ajouté, veuiller vérifier les informations entrées.');
+               }
             }
          }
-
          
-         
-     
+         else{
+            return redirect()->back()->with('danger', 'Votre crédit est insuffisant pour publier des annonces, veuillez recharger votre compte.');
+         }
       }
 
 

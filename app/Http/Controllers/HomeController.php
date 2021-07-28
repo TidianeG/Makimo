@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\Client;
 use App\User;
+use App\Credit;
 class HomeController extends Controller
 {
     /**
@@ -38,10 +39,14 @@ class HomeController extends Controller
          'password' => 'required ',
          
      ]);
+            $credit= new Credit();
+            $credit->nbre_credit=2;
+            $credit->save();
        $client = new Client();
        $client->nom_client = $request->input('nom');
        $client->prenom_client = $request->input('prenom');
        $client->adresse_client = $request->input('adresse');
+       $client->credit_id=$credit->id;
        $client->save();
     ///////////////////////////////////////////////////
     /////////////////////////////////////////////////////
@@ -53,8 +58,10 @@ class HomeController extends Controller
        $user->password=Hash::make($request->input('password'));
        $user->save();
       $verif=User::find($user->id);
+
       //Auth::login($user);
          if($verif){
+            
             return back()->with('success_info' , 'Compte créer avec succès, Veuiller utiliser votre login et mot de passe pour vous connecter');
          }
          else{

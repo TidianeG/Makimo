@@ -61,3 +61,10 @@ Route::get('/logout', 'SessionsController@destroy');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// espace packk
+
+Route::post('/createPack', "PackController@add_pack")->name('add_pack');
+Route::get("/credit/{id}/details_pack", 'PackController@details_pack');
+Route::post('/achat_credit', "PackController@achat_credit")->name('achat_credit')->middleware('auth');

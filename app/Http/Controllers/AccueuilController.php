@@ -43,7 +43,7 @@ class AccueuilController extends Controller
       $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
        $rubrique_immo = DB::table('products')->whereIn('category_id',[1])->paginate(6);
           $product = \App\Product::All();
-          $localite =   \App\Product::pluck('localite_product','id');
+          $localite =   \App\Product::pluck('name_product','id');
 
       return view('immo',compact('category','localite','immo','agence','forage','bank','rubrique_immo','product'));
    }
@@ -55,7 +55,7 @@ class AccueuilController extends Controller
       $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
       $rubrique_agence = DB::table('products')->whereIn('category_id',[2])->paginate(6);
           $product = \App\Product::All();
-          $localite =   \App\Product::pluck('localite_product','id');
+          $localite =   \App\Product::pluck('name_product','id');
       return view('agence',compact('category','localite','immo','agence','forage','bank','rubrique_agence','product'));
    }
    
@@ -67,7 +67,7 @@ class AccueuilController extends Controller
       $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
       $rubrique_banque = DB::table('products')->whereIn('category_id',[3])->paginate(6);
           $product = \App\Product::All();
-          $localite =   \App\Product::pluck('localite_product','id');
+          $localite =   \App\Product::pluck('name_product','id');
       return view('banque',compact('category','localite','immo','agence','forage','bank','rubrique_banque','product'));
    }
    public function forage(){
@@ -78,7 +78,7 @@ class AccueuilController extends Controller
       $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
       $rubrique_forage = DB::table('products')->whereIn('category_id',[4])->paginate(6);
           $product = \App\Product::All();
-          $localite =   \App\Product::pluck('localite_product','id');
+          $localite =   \App\Product::pluck('name_product','id');
         return view('forage',compact('category','localite','immo','agence','forage','bank','rubrique_forage','product'));
    }
      

@@ -5,6 +5,14 @@
                 {{ session('success') }}
             </div>
         @endif
+        @if (session('danger'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('danger') }}
+                <div class="d-flex justify-content-end">
+                    <a href="/credit" class="btn btn-success">Recharger du crédit</a>
+                </div>
+            </div>
+        @endif
                    
                 <div class="  card" style="">
                     <form action="{{route('store_annonce')}}" method="POST" enctype="multipart/form-data" id="add_products">
@@ -208,7 +216,7 @@
                     }
                 });
             </script>
-    @endsection        
+    @endsection       
 
 
 
