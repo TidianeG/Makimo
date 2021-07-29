@@ -9,14 +9,14 @@
             @foreach($packs as $pack)
                 <div class="col-sm-6 col-md-3 mb-3">
                     <div class="card text-dark">
-                        <div class="card-header  text-center" style="background:#009970;font-weight: bold;">
+                        <div class="card-header  text-center" style="background:#1E90FF;font-weight: bold;">
                           <h4>{{$pack->nbre_credit}} CREDITS</h4>
                         </div>
                         <div class="card-body ">
                             <h2 class="card-title text-center" style="font-weight: bold;">{{$pack->prix_pack}} GNF</h2>
                         </div>
-                        <div class="card-footer text-center" style="background:#009970;">
-                          <a href="/credit/{{$pack->id}}/details_pack" class="btn btn-outline-light ">ACHETER LE PACK</a> 
+                        <div class="card-footer text-center" style="background:##1E90FF;">
+                          <a href="/credit/{{$pack->id}}/details_pack" class="btn btn-info ">ACHETER LE PACK</a> 
                         </div>
                     </div>
           
@@ -32,7 +32,7 @@
         </h4>
         <style>
             .card{
-              border:3px solid #009970;
+              border:3px solid #1E90FF;
             }
 
             h4{

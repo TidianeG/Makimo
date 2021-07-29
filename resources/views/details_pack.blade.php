@@ -16,36 +16,37 @@
                 <div class="d-flex justify-content-center">
                     <div class="col-sm-6 col-md-3 mb-3">
                         <div class="card text-dark">
-                            <div class="card-header  text-center" style="background:#009970;font-weight: bold;">
+                            <div class="card-header  text-center" style="background:#1E90FF;font-weight: bold;">
                             <h4>{{$pack->nbre_credit}} CREDITS</h4>
                             </div>
                             <div class="card-body ">
                                 <h2 class="card-title text-center" style="font-weight: bold;">{{$pack->prix_pack}} GNF</h2>
                             </div>
-                            <div class="card-footer text-center" style="background:#009970;">
-                            <a href="#" class="btn btn-outline-light ">ACHETER LE PACK</a> 
+                            <div class="card-footer text-center" style="background:#1E90FF;">
+                            <a href="#" class="btn btn-outline-light ">{{$pack->nom_pack}}</a> 
                             </div>
                         </div>
             
                     </div>
                 </div>
 
-                <div >
-                    <div>
-                        <span>Nom pack : </span> <h4 <h4 style="color:red;">{{$pack->nom_pack}}</h4>
+                <div class="card border-info">
+                    <div class="">
+                        <span style="font-weight: bold;">Nom du pack : </span>  <h4 style="color:#1E90FF;">{{$pack->nom_pack}}</h4>
                     </div>
                     <div>
-                        <span>Prix pack : </span> <h4 style="color:red;">{{$pack->prix_pack}}</h4>
+                        <span style="font-weight: bold;">Prix du pack : </span> <h4 style="color:#1E90FF;">{{$pack->prix_pack}} <span style="color: black;">GNF</span></h4>
                     </div>
                     <div>
-                        <span> Nombre de crédit : </span> <h4 <h4 style="color:red;">{{$pack->nbre_credit}}</h4>
+                        <span style="font-weight: bold;"> Nombre de crédit du pack : </span> <h4 style="color:#1E90FF;">{{$pack->nbre_credit}}</h4>
                     </div>
+                    <img src="{{asset('assets/img/logo.jpeg')}}" class="img-fluid" alt="" width="295px;" style="margin-left: 780px;margin-top: -150px">
                     <form action="/achat_credit" method="post"> 
                         @csrf
                         <input type="hidden" name="nbre_credit" value="{{$pack->nbre_credit}}">
                         <input type="hidden" name="prix_pack" value="{{$pack->prix_pack}}">
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-success">Acheter le pack</button>
+                            <button type="submit" class="btn btn-info">Acheter le pack</button>
                         </div>
                     </form>
                 </div>

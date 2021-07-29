@@ -58,21 +58,16 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
+  <header id="header" class="fixed-top d-flex align-items-center mt-3" >
+    <a href="/"><img  src="{{asset('assets/img/logo.jpeg')}}" class="img-fluid" alt="" width="230px;"></a>
     <div class="container">
       <div class="header-container d-flex align-items-center">
-        <div class="logo mr-auto">
-          <h1 class="text-light"><a href="index.html"><img src="{{asset('assets/img/MAKIMO.PNG')}}" class="img-fluid" alt=""></a></h1>
-          <!-- Uncomment below if you prefer to use an image logo -->
-          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-        </div>
+       
 
-        <nav class="nav-menu d-none d-lg-block">
+        <nav class="nav-menu d-none d-lg-block mt-3 " style="height: 75px;">
           <ul>
-          <li class=""><a href="/"> Accueuil</span></a>
-             
-            </li>
-           <li class="drop-down"><a href="#"> Immo <span class="badge badge-info right">{{$immo ?? ''}}</span></a>
+          
+           <li class="drop-down"><a href="#"> Particuliers <span class="badge badge-info right">{{$immo ?? ''}}</span></a>
               <ul>
                 <li><a href="#">terrain</a></li>
                 <li><a href="#">maison</a>
@@ -130,7 +125,8 @@
 								?>
               </ul>
             </li>
-            <li class="get-started"><a href="/pub">Poster votre annonce</a></li>
+            <li class="get-started"><a href="/pub">Publier une annonce</a></li>
+           
 
           </ul>
         </nav><!-- .nav-menu -->
@@ -139,11 +135,23 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center" style="height:50vh !important;">
+  <section id="hero" class="d-flex align-items-center" style="height:90vh !important;">
+
     <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
-      <h1>Makimo Annonces immobilieres</h1>
+      <h1>Makimo Annonces immobilières</h1>
       <h2>Acheter, louer , se loger simplement .</h2>
-      <a href="/contact" class="btn-get-started scrollto">Contactez-Nous</a>
+      <h1 class="ml5">
+  <span class="text-wrapper">
+    <span class="line line1"></span>
+    <span class="letters letters-left"> <B><a href="/credit"> ACHETER DU CRÉDIT</a></B></span>
+    
+    <span class="line line2"></span>
+  </span>
+</h1>
+<a href="/contact" class="btn-get-started  scrollto mt-5" style="color: ">Contactez-Nous</a>
+
+
+     
     </div>
   </section><!-- End Hero -->
   <section id="clients" class="clients">
@@ -255,13 +263,18 @@
 											</div>
 											<div class="row">
 												<div class="form-group col-12">
-													<label for="inputPassword"class="ml-3" style="font-weight:bold;color:black;">Cofirmer mot de passe</label>
+													<label for="inputPassword"class="ml-3" style="font-weight:bold;color:black;">Confirmer mot de passe</label>
 													<div class="col-12">
 														<input type="password" class="form-control h-50" id="confirme_pass" name="confirme_pass" placeholder="confirmer password">
 													</div>
 												</div>
 												<div class="col-12" id="info-confirme_pass" class=""></div>
 											</div>
+                      <div class="mr-2">En cochant cette case vous acceptez les termes et conditions <a href="/cgu">gérerales d'utilisations et de ventes</a>.
+                        
+                     <input  type="checkbox" required>
+                     
+                    </div>
 											<div class="d-flex justify-content-around mb-4">         
 												<button type="submit" style="width:150px;border-radius:50px;height:30px !important;background:#009970; color:white;" class="">Enregistrer</button>
 												<button type="reset" style="width:150px;border-radius:50px;height:30px !important;background:#BE1E2D; color:white;" class="" data-dismiss="modal">Annuler</button>
@@ -397,6 +410,7 @@
   <script src="{{asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
   <script src="{{asset('assets/vendor/venobox/venobox.min.js')}}"></script>
   <script src="{{asset('assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
   <script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
   <script src="{{asset('js/js_home/zoom.js')}}"></script>
   <!-- Template Main JS File -->

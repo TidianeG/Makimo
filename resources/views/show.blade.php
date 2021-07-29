@@ -23,8 +23,8 @@
                                }
                           ?>
                       </div>
-                      <div class="d-flex "><span>Nom entreprise :  </span><h5 style="color:red;" class="ml-3">{{$product->business->name_business ?? "Particulier"}}</h5></div>
-                      <div><h6>Description</h6><p style="color:red;">{{$product->business->description_business ?? ""}}</p></div>
+                      <div class="d-flex "><span>Nom entreprise :  </span><h5 style="color:red;" class="ml-3">{{$product->Business->name_business ?? "Particulier"}}</h5></div>
+                      <div><h6>Description</h6><p style="color:red;">{{$product->Business->description_business ?? ""}}</p></div>
                       <H6>Cliquez et discuter par whatsapp </H6><br>
                      <a href="https://wa.me/{{$product->whatsapp_product}}" target="_blank" class="text-white btn btn-success"><i class="fab fa-whatsapp text-white"></i><span class="ml-3">Discuter par whatsapp</span></a><br>
                      <br>
