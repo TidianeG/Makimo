@@ -71,8 +71,8 @@ public function credit()
             $business = new Business();
             $data = $request->validate([
             'name_product'=>'required|min:4',
-            'prix_product' => 'required|min:3|numeric',
-            'whatsapp_product' => 'numeric',
+            'prix_product' => 'nullable |numeric',
+            'whatsapp_product' => 'nullable | numeric',
             'description_product' => 'max:1000000',
             'image_product' => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048',
             ]);
@@ -104,7 +104,7 @@ public function credit()
             
             }
             $cat=Category::find($request->input('category_id'));
-            if ($cat->name_category=="immo") {
+            if ($cat->name_category=="particuliers") {
                $produit->name_product = $request->input('name_product');
                $produit->prix_product = $request->input('prix_product');
                $produit->description_product = $request->input('description_product');
@@ -118,7 +118,7 @@ public function credit()
                $produit->user_id = Auth::user()->id; 
                $produit->save();
                $mes_credit->nbre_credit --;
-               $mes_credit->save();
+               $mes_credit->save(); 
                if ($produit) {
                   return redirect()->back()->with('success', 'Votre annonce a été bien ajouté. Merci !!!!!!!');
                }

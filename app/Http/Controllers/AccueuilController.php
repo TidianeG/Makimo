@@ -58,7 +58,14 @@ class AccueuilController extends Controller
           $localite =   \App\Product::pluck('name_product','id');
       return view('agence',compact('category','localite','immo','agence','forage','bank','rubrique_agence','product'));
    }
-   
+    public function cgu(){
+    
+     return view('cgu');
+   }
+   public function conseil(){
+    
+     return view('conseil');
+   }
    public function banque(){
     $category= Category::All();
       $immo = DB::table('categories')->where('name_category', 'like', "%immo%")->count();

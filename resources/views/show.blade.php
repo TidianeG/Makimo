@@ -16,7 +16,7 @@
                     <div class="card-header">
                       <div>
                           <?php
-                              if ($product->category->name_category !="immo") {
+                              if ($product->category->name_category !="particlier") {
                           ?>
                           <span><img  class="img-fluid rounded " src="{{$product->image_product ?  asset($product->image_product) : asset('uploads/images/default.png')}} " alt="" style="height:50% !important;width:50%"></span>
                           <?php
@@ -30,7 +30,7 @@
                      <br>
                     <H6>Appeler l'annonceur</H6><br>
                     <a class="text-white btn btn-info">
-                     <i class="fa fa-phone text-white" aria-hidden="true"></i><span class="ml-3">45748759010 <span style="font-size: 1px;">............................................................................................................................................................................................................................................................<span> </span></a> <br>
+                     <i class="fa fa-phone text-white" aria-hidden="true"></i><span class="ml-3">+224{{$product->whatsapp_product}} <span style="font-size: 1px;">............................................................................................................................................................................................................................................................<span> </span></a> <br>
                     
                    </a>
                     

@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 Route::get('/',  'AccueuilController@accueuil')->name('accueuil');
+Route::get('/apropos',  'AccueuilController@propos');
+Route::get('/cgu',  'AccueuilController@cgu');
+Route::get('/conseil-securitaire',  'AccueuilController@securitaire');
+
 Route::get('/pub',  'ProductController@creat_annonce')->name('creat_annonce')->middleware('auth');
 Route::get('/credit',  'ProductController@credit')->name('achat_credit')->middleware('auth');
 Route::get('/contact',  'ProductController@contact');
@@ -52,6 +56,8 @@ Route::get('/immo','AccueuilController@immo')->name('accueuil');
 Route::get('/banque','AccueuilController@banque');
 Route::get('/forage','AccueuilController@forage');
 Route::get('/btp','AccueuilController@agence');
+
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');
