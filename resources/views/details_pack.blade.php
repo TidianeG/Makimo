@@ -23,14 +23,14 @@
                                 <h2 class="card-title text-center" style="font-weight: bold;">{{$pack->prix_pack}} GNF</h2>
                             </div>
                             <div class="card-footer text-center" style="background:#1E90FF;">
-                            <a href="#" class="btn btn-outline-light ">{{$pack->nom_pack}}</a> 
+                            <a href="#" class="btn btn-outline-light">{{$pack->nom_pack}}</a> 
                             </div>
                         </div>
             
                     </div>
                 </div>
 
-                <div class="card border-info">
+                <div class="card border-info p-4">
                     <div class="">
                         <span style="font-weight: bold;">Nom du pack : </span>  <h4 style="color:#1E90FF;">{{$pack->nom_pack}}</h4>
                     </div>

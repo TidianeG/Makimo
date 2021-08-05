@@ -17,11 +17,7 @@
                 <div class="  card" style="">
                     <form action="{{route('store_annonce')}}" method="POST" enctype="multipart/form-data" id="add_products">
                                 @csrf
-                                @if($errors->any())
-                                @foreach($errors->all() as $error)
-                                <div class="alert alert-danger">{{$error}}</div>
-                                @endforeach
-                                @endif
+                               
                                 <div class="">   
                                     <div class="card-header">
                                      
@@ -30,37 +26,37 @@
                                     <div class="form-group col-lg-12 ">
                                         <label for="sexe" class="" style="color:green;font-weight: bold;">
                                             <p>
-                                                <span class="right badge badge-success">Selectionnez le Rubrique</span>
+                                                <span class="right badge badge-success">Selectionnez le Rubrique <span style="color:red;">*</span> </span>
                                             </p>
                                         </label>
                                         <div class="col-10">
-                                            <select name="category_id" id="name_cat" class="form-control">
+                                            <select name="category_id" id="name_category" class="form-control">
                                                 <option value=""></option>
                                                 @foreach($categories as $key => $value)
-                                                <option value="{{$key}}">{{$value}}</option>
+                                                <option value="{{$value}}">{{$value}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                   </div>
                                     <div class="form-group col-lg-12">
-                                        <label for="sexe" class="  " style="color:green;font-weight: bold;"><span class="right badge badge-success">Selectionnez le Sous-Rubrique</span></label>
+                                        <label for="sexe" class="  " style="color:green;font-weight: bold;"><span class="right badge badge-success">Selectionnez le Sous-Rubrique <span style="color:red;">*</span></span></label>
                                         <div class="col-10">
-                                            <select name="sous_category_id" id="sous_category_id" class="form-control">
+                                            <select name="sous_category_id" id="name_sous_category" class="form-control">
                                                 <option value=""></option>
                                                 @foreach($sous_category as $key => $value)
-                                                <option value="{{$key}}">{{$value}}</option>
+                                                <option value="{{$value}}">{{$value}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                   </div>
                                   
                                   <div class="form-group col-lg-12">
-                                        <label for="sexe" class="  " style="color:green;font-weight: bold;"><span class="right badge badge-success">Selectionnez la localite </span></label>
+                                        <label for="sexe" class="  " style="color:green;font-weight: bold;"><span class="right badge badge-success">Selectionnez la localite   <span style="color:red;">*</span></span></label>
                                         <div class="col-10">
-                                            <select name="localite_id" id="name_localite" class="form-control">
+                                            <select name="localite_id" id="localite_product"  class="form-control">
                                                 <option value=""></option>
                                                 @foreach($localite as $key => $value)
-                                                <option value="{{$key}}">{{$value}}</option>
+                                                <option value="{{$value}}">{{$value}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -71,16 +67,16 @@
                                     <div class="row" >
                                         <div class="col-sm-12 col-lg-12">
 
-                                            <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Saisir le nom de l'entreprise</span></label>
+                                            <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Saisir le nom de l'entreprise <span style="color:red;">*</span></span></label>
                                             <div class="col-10">
-                                                <input type="text" name="name_entreprise"  id="name_product" class="form-control" placeholder="le nom de l'entreprise">
+                                                <input type="text" name="name_entreprise"  id="name_entreprise" class="form-control" placeholder="le nom de l'entreprise">
                                             </div>
                                         </div>   
                                     </div>
                                     <div class="row" >
                                         <div class="col-sm-12 col-lg-12">
 
-                                            <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Description de l'entreprise</span></label>
+                                            <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Description de l'entreprise <span style="color:red;">*</span></span></label>
                                             <div class="col-10">
                                                 <textarea name="description_entreprise" id="description_entreprise" cols="30" rows="3" class="form-control" placeholder="La description"></textarea>
                                             </div>
@@ -88,19 +84,18 @@
                                     </div>
                                     <div class="row" >
                                         <div class=" col-sm-12" style="width: 80px;">
-                                            <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">logo de l'entreprise</span></label>
+                                            <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">logo de l'entreprise <span style="color:red;">*</span></span></label>
                                             <div class="col-10">
                                                 <input type="file" name="logo_entreprise" class="form-control" id="logo_entreprise">
                                             </div>
                                         </div>
-                                        <div class="col-12" id="info_add_product"></div>
                                     </div>
                                 </div>
                                 <!--  fin champs professionnel -->
                                 <div class="row ">
                                     <div class="col-sm-12 col-lg-12">
 
-                                        <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Saisir le nom du produit</span></label>
+                                        <label for="" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Saisir le nom du produit <span style="color:red;">*</span></span></label>
                                         <div class="col-10">
                                             <input type="text" name="name_product"  id="name_product" class="form-control" placeholder="le nom du produit">
                                         </div>
@@ -108,7 +103,7 @@
                                 </div>
                                 <div class="row ">
                                     <div class="col-sm-12 col-lg-12">
-                                            <label for="sexe" class="ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Saisir le prix du produit</span></label>
+                                            <label for="" class="ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Saisir le prix du produit</span></label>
                                             <div class="col-10">
                                                 <input type="text" name="prix_product" id="prix_product" class="form-control" placeholder="Le prix du produit">
                                             </div>
@@ -125,7 +120,7 @@
                                 </div>
                                 <div class="row ">
                                     <div class="col-sm-12 col-lg-12 ">
-                                        <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">La description de l'annonce</span></label>
+                                        <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">La description de l'annonce <span style="color:red;">*</span></span></label>
                                         <div class="col-10">
                                             <textarea name="description_product" id="description_product" cols="30" rows="3" class="form-control" placeholder="La description"></textarea>
                                         </div>
@@ -133,15 +128,16 @@
                                 </div>
                                 <div class="row ">
                                     <div class=" col-sm-12" style="width: 80px;">
-                                        <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Veuillez choisir une Image</span></label>
+                                        <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Veuillez choisir une Image <span style="color:red;">*</span></span></label>
                                         <div class="col-10">
                                             <input type="file" name="image_product" class="form-control" id="image_product">
                                         </div>
                                     </div>
-                                    <div class="col-12" id="info_add_product"></div>
+                                    
                                 </div>
+                                <div class="col-12 m-4" id="info_add_product"></div>
                                 <div class="d-flex justify-content-around mt-4 mb-4">         
-                                    <button type="submit" style="width:150px;border-radius:5px;" class="btn btn-success">Enregistrer</button>
+                                    <button type="submit" style="width:150px;border-radius:5px;" class="btn btn-success"  id="add_annonce">Enregistrer</button>
                                     <button type="reset" style="width:150px;border-radius:5px;" class="btn btn-danger" data-dismiss="modal">Annuler</button>
                                 </div>
                                 <style>
@@ -153,68 +149,111 @@
                     </form>
                 </div>
             <script>
-                let name_cat= document.getElementById('name_cat');
+                let name_cat= document.getElementById('name_category');
                 let pro_entreprise= document.getElementById('pro_entreprise');
-                 
-                    name_cat.addEventListener('change',function(){
-                        if (name_cat.value !=1 && name_cat.value !="") {
-                        pro_entreprise.style.display="block";
-                        }
-                        else{
-                            pro_entreprise.style.display="none";
-                        }
-                    });
-
-                // récuperation des ids des inputs
-                let add_products= document.getElementById('add_products');
+                 // récuperation des ids des inputs
                 
-                let name_vendeur= document.getElementById('name_vendeur');
+                let localite_product= document.getElementById('localite_product');
                 let name_product= document.getElementById('name_product');
-                let prix_product= document.getElementById('prix_product');
                 let description_product= document.getElementById('description_product');
                 let image_product= document.getElementById('image_product');
-                let name_sous_cat= document.getElementById('name_sous_cat');
+                let name_sous_cat= document.getElementById('name_sous_category');
+                
+                //Debut inputs professionnel
+                let name_entreprise= document.getElementById('name_entreprise');
+                let description_entreprise= document.getElementById('description_entreprise');
+                let logo_entreprise= document.getElementById('logo_entreprise');
+                //finn inputs professionnel
 
                 // récuperation des id des divs info
                 let info_add_product= document.getElementById('info_add_product');
+                
+                // button add annoce
+                let add_products = document.getElementById('add_products');
 
                 // déclaration tableau des inputs et tableau des divs info
-
                 let inputs=[];
-                inputs[0] = name_cat;inputs[1] = name_sous_cat;inputs[2] = name_product;inputs[3] = prix_product;inputs[4] = localite_product; inputs[5] =name_vendeur; inputs[6] =description_product; inputs[7] = image_product;inputs[8] = whatsapp_product;inputs[8]=sous_category_id;
-
-               
-                for (let i = 0; i < inputs.length; i++) {
-                    inputs[i].addEventListener('focus',function(){
-                        for (let j = 0; j < i; j++) {
-                            if (inputs[j].value==="") {
-                                inputs[j].style.border="1px solid red";
-                            }
-                            else{
-                                inputs[j].style.border="1px solid green";
-                            }
+                
+                    name_cat.addEventListener('change',function(){
+                        if (name_cat.value ==="" || name_cat.value =="particuliers") {
+                            pro_entreprise.style.display="none";     
+                        }
+                        else{   
+                            pro_entreprise.style.display="block";  
                         }
                     });
-                    
-                }
-                let pointeur =0;
-                add_products.addEventListener('submit',function(e){
-                    e.preventDefault();
 
-                    for (let i = 0; i < inputs.length; i++) {
-                        if (inputs[i].value==="") {
-                            info_add_product.classList.add("alert","alert-danger");
-                            info_add_product.innerText="veuiller remplir tous les champs";
-                            inputs[i].style.border="1px solid red";
-                            pointeur++;
+                    // Verifications des champs input
+                        if (pro_entreprise.style.display=="none") {
+                            inputs[0] = name_cat;
+                            inputs[1] = name_sous_cat;
+                            inputs[2] = localite_product;
+                            inputs[3] = name_product;
+                            inputs[4] = description_product; 
+                            inputs[5] = image_product;
+                            for (let i = 0; i < inputs.length; i++) {
+                                inputs[i].addEventListener('focus',function(){
+                                    for (let j = 0; j < i; j++) {
+                                        if (inputs[j].value==="") {
+                                            inputs[j].style.border="1px solid red";
+                                        }
+                                        else{
+                                            inputs[j].style.border="1px solid green";
+                                        }
+                                    }
+                                });
+                                
+                            }     
                         }
-                        
-                    }
-                    
-                    if (pointeur<=0) {
-                        add_products.submit();
-                    }
-                });
+                        else{
+                            inputs[0] = name_cat;
+                            inputs[1] = name_sous_cat;
+                            inputs[2] = localite_product;
+                            
+                            inputs[3] = name_entreprise;
+                            inputs[4] = description_entreprise;
+                            inputs[5] = logo_entreprise;
+
+                            inputs[6] = name_product;
+                            inputs[7] = description_product; 
+                            inputs[8] = image_product;
+                            for (let i = 0; i < inputs.length; i++) {
+                                inputs[i].addEventListener('focus',function(){
+                                    for (let j = 0; j < i; j++) {
+                                        if (inputs[j].value==="") {
+                                            inputs[j].style.border="1px solid red";
+                                        }
+                                        else{
+                                            inputs[j].style.border="1px solid green";
+                                        }
+                                    }
+                                });
+                                
+                            }
+                        }
+
+                    // verification de la valeurs des champs avant envoie
+                    let pointeur = 0;
+                    add_products.addEventListener('submit',function(e){
+                        e.preventDefault();
+
+                        for (let i = 0; i < inputs.length; i++) {
+                            if (inputs[i].value==="") {
+                                //pointeur++;
+                            }
+                            //  alert(name_cat.value);  
+                        }
+                        if(pointeur>0){
+                            info_add_product.classList.add("alert","alert-danger");
+                                info_add_product.innerText="veuiller remplir les champs obligatoires, les champs avec * sont obligatoire";
+                                inputs[i].style.border="1px solid red";
+                        }        
+                        else  {
+                            add_products.submit();
+                        } 
+                    });
+               
+                
             </script>
     @endsection       
 

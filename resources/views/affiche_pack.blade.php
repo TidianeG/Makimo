@@ -1,26 +1,28 @@
 @extends('layouts.admin')
 
     @section('content')
-        <div class="table-responsive">
+    <div class="table-responsive">
             <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
                     
-                    <th>Nom</th>
-                    <th>Email</th>
-                    <th>Objet</th>
-                    <th>Message</th>
-                   <th>Supprimer</th>
+                    <th>Nom pack</th>
+                    <th>Prix</th>
+                    <th>Nobre crédit</th>
+                    <th>edit</th>
+                    <th>del</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($contacts as $contact)
+                @foreach($packs as $pack)
                     <tr>
-                    <th>{{$contact->nom}}</th>
-                    <th>{{$contact->email}}</th>
-                    <th>{{ $contact->objet}}</th>
-                    <th>{{ $contact->message}}</th>
-                    
+                        <th>{{$pack->nom_pack}}</th>
+                        <th>{{$pack->prix_pack}}</th>
+                        <th>{{$pack->nbre_credit}}</th>
+                       
+                        <th><a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a></th>
+                        <th>
+                        
                         <form action="" method="post">
                             @csrf
                             @method('delete')
@@ -36,6 +38,4 @@
             
             </table>
         </div>
-    @endsection                
-                   
-       
+    @endsection

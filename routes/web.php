@@ -39,6 +39,9 @@ Route::post('/ajout-souscat', "ProductController@add_sous_category")->name('add-
 Route::get('/ajout-souscat', "ProductController@sous_category");
 //Route::post('/tableau-de-bord', "AccueuilController@affichage_souscategorie");
 Route::get('/affiche-cat', "ProductController@affiche_cat");
+
+Route::get('/liste_pack', "ProductController@affiche_pack");
+Route::get('/liste-annonce', "ProductController@affiche_annonce");
 Route::get('/affiche-souscat', "ProductController@affiche_souscat");
 Route::delete('/affiche-cat/{id}', "ProductController@destroy_cat");
 Route::delete('/affiche-souscat/{id}', "ProductController@destroy_souscat");

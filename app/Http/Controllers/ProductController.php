@@ -76,7 +76,12 @@ public function credit()
             'description_product' => 'max:1000000',
             'image_product' => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048',
             ]);
-        
+
+            // Récupération de category, localite et sous category associés au produit
+            $category_id=Category::where("name_category",$request->input('category_id'))->first();
+            $sous_category_id=Sous_Category::where("name",$request->input('sous_category_id'))->first();
+            $localite_id=Localite::where("name_localite",$request->input('localite_id'))->first();
+               
             if($request->has('image_product')){
                //On enregistre l'image dans un dossier
                $image = $request->file('image_product');
@@ -103,17 +108,17 @@ public function credit()
                $file = $this->uploadImage($image, $folder, 'public', $image_name);
             
             }
-            $cat=Category::find($request->input('category_id'));
-            if ($cat->name_category=="particuliers") {
+            
+            if ($category_id->name_category=="particuliers") {
                $produit->name_product = $request->input('name_product');
                $produit->prix_product = $request->input('prix_product');
                $produit->description_product = $request->input('description_product');
                $produit->whatsapp_product = $request->input('whatsapp_product');
    
    
-               $produit->sous_category_id = $request->input('sous_category_id');
-               $produit->category_id = $request->input('category_id'); 
-               $produit->localite_id = $request->input('localite_id'); 
+               $produit->sous_category_id = $sous_category_id->id;
+               $produit->category_id = $category_id->id; 
+               $produit->localite_id = $localite_id->id; 
             //$produit->property_id = $request->input('property_id'); 
                $produit->user_id = Auth::user()->id; 
                $produit->save();
@@ -138,9 +143,9 @@ public function credit()
                $produit->whatsapp_product = $request->input('whatsapp_product');
    
    
-               $produit->sous_category_id = $request->input('sous_category_id');
-               $produit->category_id = $request->input('category_id'); 
-               $produit->localite_id = $request->input('localite_id');
+               $produit->sous_category_id = $sous_category_id->id;
+               $produit->category_id = $category_id->id; 
+               $produit->localite_id = $localite_id->id;
                $produit->business_id = $business->id;
                $produit->user_id = Auth::user()->id;
             //$produit->property_id = $request->input('property_id');  
@@ -198,10 +203,10 @@ public function credit()
       public function liste_contact()
       {
          $contacts = Contact::all();
-         
+         $sms = DB::table('contacts')->count();
       
        
-         return view('liste_contact', compact('contacts'));
+         return view('liste_contact', compact('contacts','sms'));
       }
    
          public function edit($id)
@@ -282,7 +287,19 @@ public function credit()
       $categories = \App\Category::pluck('name_category','id');
       $sms = DB::table('contacts')->count();
 
-      return view('layouts.admin', compact('sous_categories','categories','sms'));
+      return view('accueuil_dashbord', compact('sous_categories','categories','sms'));
+   }
+
+   public function affiche_pack(){
+      $packs=Pack::all();
+      $sms = DB::table('contacts')->count();
+      return view('affiche_pack', compact('packs','sms'));
+   }
+
+   public function affiche_annonce(){
+      $products=Product::all();
+      $sms = DB::table('contacts')->count();
+      return view('affiche_annonce', compact('products','sms'));
    }
 
    public function add_category(Request $request)
@@ -302,16 +319,17 @@ public function credit()
     }
       public function category()
    {
-      return view('ajout-cat') ;
+      $sms = DB::table('contacts')->count();
+      return view('ajout-cat', compact('sms')) ;
 
    }
     public function sous_category()
    {
       $sous_categories = Sous_Category::all();
       $categories = \App\Category::pluck('name_category','id');
-
+      $sms = DB::table('contacts')->count();
       
-      return view('ajout-sous-cat' , compact('sous_categories','categories'));
+      return view('ajout-sous-cat' , compact('sous_categories','categories','sms'));
 
    }
        public function add_sous_category(Request $request){
@@ -349,7 +367,8 @@ public function destroy_souscat($id)
 
         public function affiche_cat(){
       $categories = Category::all();
-      return view('affiche-cat', compact('categories'));
+      $sms = DB::table('contacts')->count();
+      return view('affiche-cat', compact('categories','sms'));
    }
 
   
@@ -358,8 +377,8 @@ public function destroy_souscat($id)
    public function affiche_souscat(){
       $sous_categories = Sous_Category::all();
       $categories = \App\Category::pluck('name_category','id');
-
-      return view('affiche-souscat', compact('sous_categories','categories'));
+      $sms = DB::table('contacts')->count();
+      return view('affiche-souscat', compact('sous_categories','categories','sms'));
    }
 
 
@@ -381,7 +400,8 @@ public function destroy_localite($id)
 
   public function affiche_localite(){
       $localities =Localite::all();
-      return view('affiche-localite', compact('localities'));
+      $sms = DB::table('contacts')->count();
+      return view('affiche-localite', compact('localities','sms'));
    }
 
 
@@ -403,7 +423,8 @@ public function destroy_localite($id)
 
        public function localite()
    {
-      return view('ajout-localite') ;
+      $sms = DB::table('contacts')->count();
+      return view('ajout-localite',compact('sms')) ;
 
    }
 
