@@ -126,19 +126,30 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row ">
-                                    <div class=" col-sm-12" style="width: 80px;">
-                                        <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Veuillez choisir une Image <span style="color:red;">*</span></span></label>
-                                        <div class="col-10">
-                                            <input type="file" name="image_product" class="form-control" id="image_product">
+                                <div class="row m-2">
+                                    <div class="col-10 input-group control-group increment" >
+                                        <input type="file" name="filenames[]" class="form-control">
+                                        <div class="input-group-btn"> 
+                                            <button id="success" class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
                                         </div>
                                     </div>
-                                    
                                 </div>
+                                
+                                <div class="row m-2">
+                                    <div class="clone hide">
+                                        <div class="control-group input-group col-10" style="margin-top:10px">
+                                            <input type="file" name="filenames[]" class="form-control">
+                                            <div class="input-group-btn"> 
+                                                <button class="btn btn-danger " type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
                                 <div class="col-12 m-4" id="info_add_product"></div>
-                                <div class="d-flex justify-content-around mt-4 mb-4">         
-                                    <button type="submit" style="width:150px;border-radius:5px;" class="btn btn-success"  id="add_annonce">Enregistrer</button>
-                                    <button type="reset" style="width:150px;border-radius:5px;" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                                <div class="d-flex justify-content-center mt-4 mb-4">         
+                                    <button type="submit" style="width:150px;border-radius:5px;" class="btn btn-primary"  id="add_annonce">Enregistrer</button>
+                                    
                                 </div>
                                 <style>
                                     span{
@@ -148,7 +159,18 @@
                                 </style>
                     </form>
                 </div>
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
             <script>
+                $(document).ready(function() {
+                    
+                        $("#success").click(function(){ 
+                            var lsthmtl = $(".clone").html();
+                            $(".increment").after(lsthmtl);
+                        });
+                        $("body").on("click",".btn-danger",function(){ 
+                            $(this).parents(".control-group").remove();
+                        });
+                    });
                 let name_cat= document.getElementById('name_category');
                 let pro_entreprise= document.getElementById('pro_entreprise');
                  // récuperation des ids des inputs
@@ -253,7 +275,7 @@
                         } 
                     });
                
-                
+                    
             </script>
     @endsection       
 

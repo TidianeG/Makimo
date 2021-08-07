@@ -103,12 +103,15 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <img  src="{{$product->image_product ? asset($product->image_product) : asset('uploads/images/default.png')}}" alt="#">
+                              <?php foreach(json_decode($product->image_product)as $file){ ?>
+                                    <img src="{{asset('/uploads/images/'.$file)}}" alt="">
+                                <?php break; } ?>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
                                     <a href="#"><i class="fa fa-heart"></i></a>
                                     <a href="#"><i class="fa fa-search"></i></a>
                                 </div>
+                                
                             </div>
                             <div class="product-price">
                                 <h4 style="color:white;">{{$product->prix_product}} FCFA</h4>

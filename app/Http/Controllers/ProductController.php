@@ -69,32 +69,35 @@ public function credit()
          if( $mes_credit->nbre_credit > 0){
             $produit = new Product();
             $business = new Business();
-            $data = $request->validate([
+            $this->validate($request, [
             'name_product'=>'required|min:4',
             'prix_product' => 'nullable |numeric',
             'whatsapp_product' => 'nullable | numeric',
             'description_product' => 'max:1000000',
-            'image_product' => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048',
+            'filenames' => 'required',
+            'filenames.*' => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048',
             ]);
 
             // Récupération de category, localite et sous category associés au produit
             $category_id=Category::where("name_category",$request->input('category_id'))->first();
             $sous_category_id=Sous_Category::where("name",$request->input('sous_category_id'))->first();
             $localite_id=Localite::where("name_localite",$request->input('localite_id'))->first();
-               
-            if($request->has('image_product')){
-               //On enregistre l'image dans un dossier
-               $image = $request->file('image_product');
-               //Nous allons definir le nom de notre image en combinant le nom du produit et un timestamp
-               $image_name = Str::slug($request->input('image_product')).'_'.time();
-               //Nous enregistrerons nos fichiers dans /uploads/images dans public
-               $folder = '/uploads/images/';
-               //Nous allons enregistrer le chemin complet de l'image dans la BD
-               $produit->image_product = $folder.$image_name.'.'.$image->getClientOriginalExtension();
-               //Maintenant nous pouvons enregistrer l'image dans le dossier en utilisant la methode uploadImage();
-               $file = $this->uploadImage($image, $folder, 'public', $image_name);
             
-            }
+            
+
+            if($request->hasfile('filenames')) {
+               foreach($request->file('filenames') as $file)
+               {
+                   $name = $file->getClientOriginalName();
+                   $file->move(public_path().'/uploads/images/', $name);  
+                   $data[] = $name;  
+                   
+
+               }
+               //dd($data);
+               $produit->image_product=json_encode($data);
+           }
+
             if($request->has('logo_entreprise')){
                //On enregistre l'image dans un dossier
                $image = $request->file('logo_entreprise');
@@ -115,7 +118,7 @@ public function credit()
                $produit->description_product = $request->input('description_product');
                $produit->whatsapp_product = $request->input('whatsapp_product');
    
-   
+               
                $produit->sous_category_id = $sous_category_id->id;
                $produit->category_id = $category_id->id; 
                $produit->localite_id = $localite_id->id; 
