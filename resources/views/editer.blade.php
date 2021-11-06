@@ -11,8 +11,8 @@
             <th class="col-info"><span style="font-size: 20px; ">Categorie<span></th>
             <th class="col-info"><span style="font-size: 20px; ">Sous-Categorie<span></th>
             <th class="col-info"><span style="font-size: 20px; ">Image<span> </th>
-            <th class="bg-info"><span style="font-size: 20px; ">Edit<span></th>
-            <th class="bg-danger"><span style="font-size: 20px; ">Delete<span></th>
+            <th><span style="font-size: 20px; ">Edit<span></th>
+            <th ><span style="font-size: 20px; ">Delete<span></th>
           </tr>
         </thead>
         <tbody>
@@ -23,7 +23,11 @@
                 <th>{{$product->prix_product}}</th>
                 <th>{{ $product->Category->name_category}}</th>
                 <th>{{ $product->Sous_Category->name}}</th>
-                <th><img style="width:80px;height:70px;" src="{{$product->image_product ? asset($product->image_product) : asset('uploads/images/default.png')}}" alt="" width="100"></th>
+                <th>
+                  <?php foreach(json_decode($product->image_product)as $file){ ?>
+                      <img style="width:80px;height:70px;" src="{{asset('/uploads/images/'.$file)}}" alt="" width="100">
+                  <?php break; } ?>
+                </th>
                 <th> 
                   <a href="{{route('editer_produit',['id'=>$product->id])}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                 </th>

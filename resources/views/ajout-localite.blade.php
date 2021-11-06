@@ -1,45 +1,38 @@
 @extends('layouts.admin')
 
     @section('content')
-    @if (session('success'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-                   
-                <div class="container  col-md-6 card" style="width: 98rem;">
-                    <form action="{{route('add-localite')}}" method="POST" enctype="multipart/form-data" id="add_localite">
-                                @csrf
-                                @if($errors->any())
-                                @foreach($errors->all() as $error)
-                                <div class="alert alert-danger">{{$error}}</div>
-                                @endforeach
-                                @endif
-                                <div class="">   
-                                    <div class="card-header">
-                                     
-                                     <h3 style="font-weight: bold;font-size: 27px; color:green;">VEUILLEZ AJOUTER UNE LOCALITÉ </h3>
-                                    </div>
-                                    
-                                   
-                                
-                               
-                                <div class="row ">
-                                    <div class="col-sm-12 col-lg-12">
-
-                                        <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Saisir la localité</span></label>
-                                        <div class="col-10">
-                                            <input type="text" name="name_localite"  id="name_localite" class="form-control" placeholder="le nom du produit">
-                                        </div>
-                                    </div>   
-                                </div>
-                                
-                                <div class="d-flex justify-content-between mt-4">         
-                                    <button type="submit" style="width:150px;border-radius:5px;" class="btn btn-success">Enregistrer</button>
-                                    <button type="reset" style="width:150px;border-radius:5px;" class="btn btn-danger" data-dismiss="modal">Annuler</button>
-                                </div>
-                    </form>
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif 
+        <div class="container  card" style="width: 60%;">
+            <form action="{{route('add-localite')}}" method="POST" enctype="multipart/form-data" id="add_localite">
+                @csrf
+                @if($errors->any())
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger">{{$error}}</div>
+                    @endforeach
+                @endif
+                <div class="">   
+                    <div class="card-header">
+                        <h3 style="font-weight: bold;font-size: 27px; color:green;">VEUILLEZ AJOUTER UNE LOCALITÉ </h3>
+                    </div>
+                    <div class="row ">
+                        <div class="col-sm-12 col-lg-12">
+                            <label for="sexe" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Saisir la localité</span></label>
+                            <div class="col-12">
+                                <input type="text" name="name_localite"  id="name_localite" class="form-control" placeholder="Nom localité">
+                            </div>
+                        </div>   
+                    </div>   
+                    <div class="d-flex justify-content-between m-4">         
+                        <button type="submit" style="width:150px;border-radius:5px;" class="btn btn-success">Enregistrer</button>
+                        <button type="reset" style="width:150px;border-radius:5px;" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                    </div>
                 </div>
+            </form>
+        </div>
             <script>
                 // récuperation des ids des inputs
                 let add_products= document.getElementById('add_products');

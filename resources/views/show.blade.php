@@ -57,8 +57,8 @@
               </div>
           </div>
         </section>
-        <section>
-            <div class="card mb-4 w-75" style="">
+        <section class="container">
+            <div class="card mb-4 w-100" style="">
                 <div class="card-header">
                     <h3 class="mr-3 text-center" > Description Générale du produit.</h3>
                 </div>
@@ -158,7 +158,7 @@
                   }
               }
         </style>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        
             <script>
                 // Get the modal
                 var modal = document.getElementById('myModal');

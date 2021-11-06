@@ -309,70 +309,7 @@
     <!-- /.content -->
   </div>
 
-  <!--- Modal add pack -->
-
-        <div class="modal fade " id="ajoutpack" >
-          <div class="modal-dialog  modal-md">
-              <div class="modal-content" >
-                  <!-- Modal Header -->
-                      <div class="modal-header" style="">
-                          <button type="button" class="close bg-danger btn-danger " data-dismiss="modal">&times;</button>
-                      </div>                        
-                  <!-- Modal body -->
-                      <div class="modal-body ">
-							            <div class="  " style="height:100%;overflow-x:scroll;">
-								<div class="card auth ">
-									<div class="card-header auth-header login100-form-title" >
-										<span class="login100-form-title-1" style="size:16px;font-weight:bold;">
-											Ajout dpack
-										</span>
-									</div>                        
-									<!-- Modal body -->
-									<div class="modal-body  p-3" style="height:auto;">
-										<form action="/createPack" method="post" id="add_pack">
-											@csrf 
-											<div class="row">
-												<div class="form-group col-12 ">
-													<label for="inputEmail" class="" style="font-weight:bold;color:red;">Nom pack<span style="background-colol:red;">*</span></span></label>
-													<div class="col-12">
-														<input type="text" class="form-control" id="name_category" name="nom_pack" placeholder="Entrer nom pack">
-													</div>
-												</div>
-                        <div class="col-12" id="info_cat"></div>
-                      </div> 
-                      <div class="row">
-												<div class="form-group col-12 ">
-													<label for="inputEmail" class="" style="font-weight:bold;color:red;">Prix pack<span style="background-colol:red;">*</span></span></label>
-													<div class="col-12">
-														<input type="number" class="form-control" id="name_category" name="prix_pack">
-													</div>
-												</div>
-                        <div class="col-12" id="info_cat"></div>
-                      </div>
-                      <div class="row">
-												<div class="form-group col-12 ">
-													<label for="inputEmail" class="" style="font-weight:bold;color:red;">Nombre crédit<span style="background-colol:red;">*</span></span></label>
-													<div class="col-12">
-														<input type="number" class="form-control" id="name_category" name="nbre_credit" >
-													</div>
-												</div>
-                        <div class="col-12" id="info_cat"></div>
-                      </div>
-                                            <div class="d-flex justify-content-center " style="">
-                                                <button class=" btn-success" style="border-radius:70px;width:200px;height:45px;size:12px;font-weight:bold;">
-                                                    Enregistrer
-                                                </button>
-						                    </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-
-  <!--- Fin modall add pack -->
+  
   <!-- /.content-wrapper -->
  
 

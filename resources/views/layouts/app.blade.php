@@ -48,6 +48,7 @@
 
 <link  href="https://fonts.googleapis.com/css?family=Rancho&effect=fire-animation|3d-float|neon|canvas-print">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,900" rel="stylesheet" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <!-- =======================================================
   * Template Name: Bethany - v2.2.1
   * Template URL: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/
@@ -65,7 +66,7 @@
       <div class="header-container d-flex align-items-center">
        
 
-        <nav class="nav-menu d-none d-lg-block mt-3 " style="height: 70px;">
+        <nav class="nav-menu d-none d-lg-block mt-3 " style="min-height:70px;max-height: auto;">
           <ul>
           
            <li class="drop-down"><a href="#"> <span class="right "style="font-weight: bold;font-size:9px;" >Particuliers</span> <span class="badge badge-info right">{{$immo ?? ''}}</span></a>
@@ -226,8 +227,8 @@
           </button>
           
         </div>
-        <div class="modal-body container">
-            <form action="/ajouter_user" method="post" id="inscription">
+          <div class="modal-body container">
+              <form action="/ajouter_user" method="post" id="inscription">
                       @csrf 
                       <div class="row">
                         <div class="form-group col-12">
@@ -294,12 +295,11 @@
                         <button type="reset" style="width:150px;border-radius:50px;height:30px !important;background:#BE1E2D; color:white;" class="" data-dismiss="modal">Annuler</button>
                       </div>
                       
-                    </form>
-                    <div class="d-flex justify-content-center mt-5">
-                      <a href="/login"  class="redirect-login" style=""> <i class="fas fa-user-lock fa-md fa-fw mr-2 text-gray-400" aria-hidden="true"></i> Se connecter</a>
-                    </div>
+              </form>
+              <div class="d-flex justify-content-center mt-5">
+                  <a href="/login"  class="redirect-login" style=""> <i class="fas fa-user-lock fa-md fa-fw mr-2 text-gray-400" aria-hidden="true"></i> Se connecter</a>
+              </div>
           </div>
-        
         </div>
       </div>
     </div>
@@ -426,6 +426,9 @@
   <script src="{{asset('assets/js/easing.min.js')}}"></script>
   <script src="{{asset('assets/js/slick.min.js')}}"></script>
   <script src="{{asset('assets/js/main1.js')}}"></script>
+  <script src="{{asset('assets/js/controle-forme.js')}}"></script>
+  
+  
   
 </body>
 
