@@ -112,21 +112,46 @@ public function credit()
             
             }
             
-            if ($category_id->name_category=="particuliers") {
+            if ($category_id->name_category=="particulier") {
                $produit->name_product = $request->input('name_product');
                $produit->prix_product = $request->input('prix_product');
                $produit->description_product = $request->input('description_product');
                $produit->whatsapp_product = $request->input('whatsapp_product');
-   
+               $produit->optionCouleur = $request->input('optionCouleur');
+               $produit->optionTri = $request->input('optionTri');
                
                $produit->sous_category_id = $sous_category_id->id;
                $produit->category_id = $category_id->id; 
                $produit->localite_id = $localite_id->id; 
             //$produit->property_id = $request->input('property_id'); 
                $produit->user_id = Auth::user()->id; 
-               $produit->save();
-               $mes_credit->nbre_credit --;
-               $mes_credit->save(); 
+
+               
+               if(($produit->optionCouleur ==null && $produit->optionTri !=null)|| ($produit->optionTri ==null && $produit->optionCouleur !=null)) {
+                  if($mes_credit->nbre_credit>=2){
+                     $mes_credit->nbre_credit= $mes_credit->nbre_credit -2;
+                     $mes_credit->save();
+                     $produit->save();
+                  }
+                  else {
+                     return redirect()->back()->with('danger', 'Votre crédit est insuffisant pour publier des annonces, veuillez recharger votre compte.');
+                  }
+               }
+                if($produit->optionCouleur != null && $produit->optionTri != null){
+                  if($mes_credit->nbre_credit>=4){
+                     $mes_credit->nbre_credit= $mes_credit->nbre_credit -4;
+                     $mes_credit->save();
+                     $produit->save();
+                  }
+                  else {
+                     return redirect()->back()->with('danger', 'Votre crédit est insuffisant pour publier des annonces, veuillez recharger votre compte.');
+                  }
+                }
+                if($produit->optionCouleur == null && $produit->optionTri == null){
+                  $mes_credit->nbre_credit --;
+                  $mes_credit->save();
+                  $produit->save();
+                }
                if ($produit) {
                   return redirect()->back()->with('success', 'Votre annonce a été bien ajouté. Merci !!!!!!!');
                }
@@ -144,7 +169,8 @@ public function credit()
                $produit->prix_product = $request->input('prix_product');
                $produit->description_product = $request->input('description_product');
                $produit->whatsapp_product = $request->input('whatsapp_product');
-   
+               $produit->optionCouleur = $request->input('optionCouleur');
+               $produit->optionTri = $request->input('optionTri');
    
                $produit->sous_category_id = $sous_category_id->id;
                $produit->category_id = $category_id->id; 
@@ -152,10 +178,37 @@ public function credit()
                $produit->business_id = $business->id;
                $produit->user_id = Auth::user()->id;
             //$produit->property_id = $request->input('property_id');  
-               $produit->save();
                
-               $mes_credit->nbre_credit --;
-               $mes_credit->save();
+               if (($produit->optionCouleur ==null && $produit->optionTri !=null)|| ($produit->optionTri ==null && $produit->optionCouleur !=null)) {
+                  
+                  if($mes_credit->nbre_credit>=2){
+                     $mes_credit->nbre_credit= $mes_credit->nbre_credit -2;
+                     $mes_credit->save();
+                     $produit->save();
+                  }
+                  else {
+                     return redirect()->back()->with('danger', 'Votre crédit est insuffisant pour publier des annonces, veuillez recharger votre compte.');
+                  }
+               }
+                if($produit->optionCouleur != null && $produit->optionTri != null){
+                  
+                  if($mes_credit->nbre_credit>=4){
+                     $mes_credit->nbre_credit =$mes_credit->nbre_credit-4;
+                     $mes_credit->save();
+                     $produit->save();
+                  }
+                  else {
+                     return redirect()->back()->with('danger', 'Votre crédit est insuffisant pour publier des annonces, veuillez recharger votre compte.');
+                  }
+                }
+                if($produit->optionCouleur == null && $produit->optionTri == null){
+                  
+                     $mes_credit->nbre_credit --;
+                     $mes_credit->update();
+                     $produit->save();
+                  
+                }
+               
                if ($business) {
                   return redirect()->back()->with('success', 'Votre annonce a été bien ajouté. Merci !!!!!!!');
                }
@@ -170,6 +223,38 @@ public function credit()
          }
       }
 
+
+      // selection des annonces d'un utilisateur
+
+      public function mes_annonces() 
+         {
+            $products  = Product::where('user_id', Auth::user()->id)->get();
+
+            return view("mes_annonces", compact('products'));
+         }
+
+      // edition d'une  annonces selectionner
+
+      public function edit_annonce($id) 
+      {
+         $business = Business::find($id);
+         $products = Product::find($id);
+         
+          $immo = DB::table('categories')->where('name_category', 'like', "%immo%")->count();
+         $agence = DB::table('categories')->where('name_category', 'like', "%agenceimmo%")->count();
+         $forage = DB::table('categories')->where('name_category', 'like', "%forage%")->count();
+         $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
+
+    //$property = Property::all();
+    //$properties = DB::table('properties')->whereIn('id', [$id]) ;
+     
+         return view("editer_annonce", compact('products','immo','agence','forage','bank','business'));
+      }
+
+      public function editer_annonce(Request $request) 
+      {
+         
+      }
 
          public function show($id) 
          {
@@ -231,29 +316,30 @@ public function credit()
         //
  
       $request->validate([
-            'name_product'=>'required',
-            'prix_product'=> 'required',
-            'description_product' => 'required | max:10000',
-            
+            'name'=>'required',
+            'price'=> 'required',
+            'description' => 'required | max:10000',
+            'contact' => 'required',     
       ]);
  
  
       $product = \App\Product::find($id);
-      $product->name_product = $request->get('name_product');
-      $product->prix_product = $request->get('prix_product');
-      $product->description_product = $request->get('description_product');
+      $product->name_product = $request->get('name');
+      $product->prix_product = $request->get('price');
+      $product->description_product = $request->get('description');
+      $product->whatsapp_product = $request->get('contact');
         
  
       $product->update();
  
-      return redirect('/annonce')->with('success', 'Le Produit est mise á jour avec succés .');
+      return redirect()->back()->with('success', 'Le Produit est modifié avec succés .');
     }
         public function destroy($id)
     {
         $product = Product::find($id);
         if($product)
         $product->delete();
-       return redirect('/annonce');
+       return redirect('/dashbord/mes-annonces')->with('success', 'Le Produit est supprimé .');
     }
    public function contact() {
       $immo = DB::table('categories')->where('name_category', 'like', "%immo%")->count();
@@ -285,7 +371,7 @@ public function credit()
       
 
      public function admin(){
-
+      $this->authorize('admin');
       $sous_categories = Sous_Category::all();
       $categories = \App\Category::pluck('name_category','id');
       $sms = DB::table('contacts')->count();
@@ -430,5 +516,40 @@ public function destroy_localite($id)
       return view('ajout-localite',compact('sms')) ;
 
    }
+
+
+  
+      public function search()
+    {
+        request()->validate([
+            'q' => 'required|min:3'
+        ]);
+
+        $q = request()->input('q');
+        $rubrique= request()->input('rubrique');
+        $localite= request()->input('localite');
+        $prix_min= request()->input('prix_min');
+        $prix_max= request()->input('prix_max');
+        $type_annoce= request()->input('type_annoce');
+        $type_annonceur= request()->input('annonceur');
+        $optionPhoto= request()->input('optionPhoto');
+        $optionTri= request()->input('optionTri');
+        $optionCouleur= request()->input('optionCouleur');
+         
+
+               $products = Product::where('name_product', 'like', "%$q%")
+                ->orWhere('description_product', 'like', "%$q%")
+                ->paginate(6);
+                
+                 $category= Category::All();
+                $sous_rubrique = \App\Sous_Category::pluck('name','id');
+                 $immo = DB::table('categories')->where('name_category', 'like', "%immo%")->count();
+                 $agence = DB::table('categories')->where('name_category', 'like', "%agenceimmo%")->count();
+                 $forage = DB::table('categories')->where('name_category', 'like', "%forage%")->count();
+                 $bank = DB::table('categories')->where('name_category', 'like', "%banqueinstituts%")->count();
+                   $categories = \App\Category::pluck('name_category','id');
+                   $localite =   \App\Localite::pluck('name_localite','id');
+        return view('search', compact('products','localite','category','categories','immo','agence','forage','bank','sous_rubrique'));
+    }
 
 }

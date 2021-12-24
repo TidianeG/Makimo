@@ -52,9 +52,9 @@
                               </div>
                               <div class="col-6 col-md-3">
                                   <label for="" style="color:white;">Type d'annonceur</label>
-                                  <select name="annonceur" id="">
+                                  <select name="type_annonceur" id="">
                                       <option value="">Indifferent</option>
-                                      @foreach($categories as $key => $value)
+                                      @foreach($category as $key => $value)
                                             <option value="{{$key}}">{{$value}}</option>
                                     @endforeach
                                   </select>
@@ -84,11 +84,23 @@
     </section>
     <!-- End About Section -->
     <section>
+        <!-- information search -->
+        <div class="">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <h4 class="" style="font-weight:bold;">Recherche d'annonces sur MAKIMO</h4>
+                    <label for="">Trié par:</label><h4></h4>
+                </div>
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
          <!-- Recent Product Start -->
         <div class="recent-product product">
-            <div class="container-fluid">
+            <div class="">
                 <div class="section-header" style="background:#1E90FF;">
-                    <h4 class="text-center" style="color:white;">Annonce á la une</h4>
+                    <h4 class="text-center" style="color:white;">Résultat de la recherche</h4>
                 </div>
              <!-- Recent Product End -->    
                 <div class="row">

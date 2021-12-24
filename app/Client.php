@@ -13,4 +13,8 @@ class Client extends Model
     public function credit(){
         return $this->belongsTo('App\Credit');   
     }
+
+    public function payment(){
+        return $this->hasMany('App\Payment');
+    }
 }

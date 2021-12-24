@@ -49,6 +49,7 @@
 <link  href="https://fonts.googleapis.com/css?family=Rancho&effect=fire-animation|3d-float|neon|canvas-print">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,900" rel="stylesheet" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
   <!-- =======================================================
   * Template Name: Bethany - v2.2.1
   * Template URL: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/
@@ -129,7 +130,7 @@
                 ?>
                    <li><a href="#" > <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" aria-hidden="true"></i>Mon compte</a></li>
 
-                   <li><a href="#" > <i class="fas fa-luggage-cart fa-sm fa-fw mr-2 text-gray-400" aria-hidden="true"></i>Mes annonces</a></li> 
+                   <li><a href="/dashbord/mes-annonces" > <i class="fas fa-luggage-cart fa-sm fa-fw mr-2 text-gray-400" aria-hidden="true"></i>Mes annonces</a></li> 
                    <li><a href="#" data-toggle="modal" data-target="#nbrecreditapp"> <i class="fas fa-luggage-cart fa-sm fa-fw  text-gray-400" aria-hidden="true"></i>Mes crédits</a></li>          
                     <div class="dropdown-divider"></div>
                     <li>
@@ -146,7 +147,7 @@
             </li>
            
            <li class=" "><a href="/pub"style="font-weight:bold;or:#1E90FF;" ><i class="icofont-law-document"></i> Poster une annonce</a></li>
-          <li class=" get-started"><a href="/credit"style="font-weight:bold;or:#1E90FF;" > <i class="icofont-money"></i>Acheter crédit</a></li>
+          <li class=" get-started"><a href="/credit"style="font-weight:bold;background:#1E90FF;" > <i class="icofont-money"></i>Acheter crédit</a></li>
          
 
           </ul>
@@ -216,7 +217,7 @@
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-        <div class="modal-header" style="height:auto !important;background:#009970  ;">
+        <div class="modal-header" style="height:auto !important;background:#1E90FF  ;">
           <div class="mb-1 modal-title w-100 ">
             <img src="images/embleme.PNG" alt="" >
             <h4 class="text-center" style="color:white;">Makimo-Inscription</h4>
@@ -304,38 +305,36 @@
       </div>
     </div>
 
-
     <!-- end modal inscription-->
 
-          <!-- Affichage solde credit-->
-          <div class="modal fade " id="nbrecreditapp" >
+              <!-- Affichage solde credit-->
+                  <div class="modal fade " id="nbrecreditapp" >
                     <div class="modal-dialog  modal-md">
                         <div class="modal-content" >
                             <!-- Modal Header -->
                             <div class="modal-header" style="">
+                                <h5>Mes Crédits</h5>
                                 <button type="button" class="close bg-danger btn-danger " data-dismiss="modal">&times;</button>
                             </div>                        
                             <!-- Modal body -->
                             <div class="modal-body ">
-                  <div class="  " style="height:100%;overflow-x:scroll;">
-                    <div class="card auth ">
-                      <div class="card-header auth-header login100-form-title" >
-                        <span class="login100-form-title-1" style="size:16px;font-weight:bold;">
-                      Mes Crédits
-                        </span>
-                      </div>                        
+                              <div class="d-flex justify-content-center">
+                                <h5>Solde : <span style="color:red;">{{Auth::user()->client->credit->nbre_credit ?? ""}}  CREDITS</span></h5>
+                              </div>
+                      
+                       
+                            </div>                        
                       <!-- Modal body -->
-                      <div class="card-body  p-3" style="height:auto;">
-                                                <div class="d-flex justify-content-center">
-                                                    <h5>Solde : <span style="color:red;">{{Auth::user()->client->credit->nbre_credit ?? ""}}  CREDITS</span></h5>
-                                                </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        
+                        <div class="modal-footer d-flex justify-content-center">
+                            <a href="/credit" class="btn btn-success">Acheter credit</a>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
+              </div>
+            </div>
                 <!-- end affichage solde credit--> 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -419,6 +418,7 @@
   <script src="{{asset('assets/vendor/venobox/venobox.min.js')}}"></script>
   <script src="{{asset('assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+   
   <script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
   <script src="{{asset('js/js_home/zoom.js')}}"></script>
   <!-- Template Main JS File -->
@@ -426,8 +426,7 @@
   <script src="{{asset('assets/js/easing.min.js')}}"></script>
   <script src="{{asset('assets/js/slick.min.js')}}"></script>
   <script src="{{asset('assets/js/main1.js')}}"></script>
-  <script src="{{asset('assets/js/controle-forme.js')}}"></script>
-  
+  <script src="{{asset('assets/js/controle-forme.js')}}"></script>  
   
   
 </body>

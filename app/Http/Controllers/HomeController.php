@@ -29,6 +29,11 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function dashbord()
+    {
+        return view('admin');
+    }
+
     public function store(Request $request)
     {  
       $request->validate([

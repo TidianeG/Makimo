@@ -28,11 +28,18 @@ Route::post('/contact', [
 Route::get('/liste_contact',  'ProductController@liste_contact');
 Route::post('/pub','ProductController@store')->name('store_annonce');
 Route::get("/pub/{id}/show", 'ProductController@show');
+Route::get("/dashbord/mes-annonces", 'ProductController@mes_annonces');
+Route::get("/dashbord/mes-annonces/{id}/edit", 'ProductController@edit_annonce');
+
+Route::post("/dashbord/mes-annonces/editer_annonce", 'ProductController@editer_annonce');
+
+
 Route::get('/annonce','ProductController@liste')->name('editer_produit');
 Route::get('annonce/{id}/edit', 'ProductController@edit')->name('editer_produit');
-Route::patch('annonce/{id}/edit', 'ProductController@update1')->name('update_product');
-Route::delete('annonce/{id}','ProductController@destroy');
+Route::patch('/editer-annonce/edit/{id}', 'ProductController@update1')->name('update_product');
+Route::delete('/delete-annonce/{id}','ProductController@destroy');
 Route::get('/tableau-de-bord','ProductController@admin');
+Route::get('/admin','HomeController@dashbord');
 Route::post('/ajout-cat', "ProductController@add_category")->name('add-cat');
 Route::get('/ajout-cat', "ProductController@category");
 Route::post('/ajout-souscat', "ProductController@add_sous_category")->name('add-souscat');
@@ -50,7 +57,7 @@ Route::get('/ajout-localite', "ProductController@localite");
 Route::delete('/affiche-localite/{id}', "ProductController@destroy_localite");
 Route::post('/ajout-localite', "ProductController@add_localite")->name('add-localite');
 
-Route::get('/search', "ProductController@search")->name('RECHERCHE.search');
+Route::get('/search', "ProductController@search")->name('annonce.search');
 
 Route::post('/ajouter_user', "HomeController@store")->name('add_user');
 
@@ -77,3 +84,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/createPack', "PackController@add_pack")->name('add_pack');
 Route::get("/credit/{id}/details_pack", 'PackController@details_pack');
 Route::post('/achat_credit', "PackController@achat_credit")->name('achat_credit')->middleware('auth');
+Route::get('https://touchpay.gutouch.com/touchpay/retour_payment', "PackController@retour_payment");
+
+// route de redirection apres paiement
+Route::post("/purchase", 'PackController@purchase')->name("purchase");
+
+Route::get("/success-payment", 'PackController@success_payment')->name('success_payment');
+
+Route::get("/error-payment", 'PackController@error_payment')->name('error_payment');
+Route::get("/credit/retour-success-payment", 'PackController@valid_payment')->name('retour.success');

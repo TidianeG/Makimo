@@ -18,9 +18,11 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name_product');
             $table->integer('prix_product');
-            $table->string('image_product');
+            $table->string('image_product')->nullable();
             $table->string('description_product');
             $table->integer('whatsapp_product');
+            $table->string('optionCouleur')->nullable();
+            $table->string('optionTri')->nullable();
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('sous_category_id');
             $table->unsignedInteger('localite_id');

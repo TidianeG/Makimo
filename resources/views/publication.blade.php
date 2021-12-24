@@ -126,6 +126,43 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div>
+                                    <label for="" class=" ml-3 " style="color:green;font-weight: bold;"><span class="right badge badge-success">Etat de l'annonce <span style="color:red;">*</span></span></label>
+                                    <div class="row container">
+                                        <div class="col-3">
+                                            <div>
+                                                Par défaut <input type="checkbox" id="defaut" name="defaut" value="defaut">
+                                            </div>
+                                            <div style="color:red;">
+                                                1 crédit
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div>
+                                                A la une <input type="radio" id="optionTri1" name="optionTri" value="une" >
+                                            </div>
+                                            <div style="color:red;">
+                                                2 crédits
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div>
+                                                Urgent <input type="radio" id="optionTri" name="optionTri" value="urgent">
+                                            </div>
+                                            <div style="color:red;">
+                                                2 crédits
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div>
+                                                Encadrée <input type="checkbox" id="optionCouleur" name="optionCouleur" value="encadre">
+                                            </div>
+                                            <div style="color:red;">
+                                                2 crédits
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row m-2">
                                     <div class="col-10 input-group control-group increment" >
                                         <input type="file" name="filenames[]" class="form-control">
@@ -161,6 +198,38 @@
                 </div>
                
             <script>
+                document.getElementById("optionTri").checked=false;
+                document.getElementById("optionTri1").checked=false;
+                document.getElementById('optionCouleur').checked=false;
+                document.getElementById('defaut').checked=true;
+
+                document.getElementById('optionCouleur').addEventListener('click', function(){ 
+                        if (document.getElementById('optionCouleur').checked) {
+                            //document.getElementById("optionTri").checked==false;
+                            document.getElementById('defaut').checked=false;
+                             
+                        }
+                    });
+                    document.getElementById('defaut').addEventListener('click', function(){ 
+                        if (document.getElementById('defaut').checked) {
+                            document.getElementById("optionTri").checked=false;
+                            document.getElementById("optionTri1").checked=false;
+                            document.getElementById('optionCouleur').checked=false;
+                             
+                        }
+                    });
+                    document.getElementById('optionTri').addEventListener('click', function(){ 
+                        if (document.getElementById('optionTri').checked) {
+                            document.getElementById("defaut").checked=false;
+                             
+                        }
+                    });
+                    document.getElementById('optionTri1').addEventListener('click', function(){ 
+                        if (document.getElementById('optionTri1').checked) {
+                            document.getElementById("defaut").checked=false;
+                             
+                        }
+                    });
                 $(document).ready(function() {
                     
                         $("#success").click(function(){ 
@@ -197,7 +266,7 @@
                 let inputs=[];
                 
                     name_cat.addEventListener('change',function(){
-                        if (name_cat.value ==="" || name_cat.value =="particuliers") {
+                        if (name_cat.value ==="" || name_cat.value =="particulier") {
                             pro_entreprise.style.display="none";     
                         }
                         else{   
@@ -261,7 +330,7 @@
 
                         for (let i = 0; i < inputs.length; i++) {
                             if (inputs[i].value==="") {
-                                //pointeur++;
+                                pointeur++;
                             }
                             //  alert(name_cat.value);  
                         }
@@ -274,7 +343,10 @@
                             add_products.submit();
                         } 
                     });
-               
+               // Si l'utilisateur selectionne par defaut
+
+                    // Si l'utilisateur selectionne par encadrée
+                    
                     
             </script>
     @endsection       

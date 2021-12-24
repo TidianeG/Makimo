@@ -28,5 +28,7 @@ class Product extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
-    
+    public function payment(){
+        return $this->hasMany('App\Payment');
+    }
 }
